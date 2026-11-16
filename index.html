@@ -3,20 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Netravex Technologies | DPDP Readiness & Digital Trust</title>
-    
-    <!-- Google Fonts: Space Grotesk & Inter -->
+    <title>Netravex Technologies | DPDP Act Readiness &amp; Consulting Portal</title>
+
+    <!-- Google Fonts: Inter & Space Grotesk -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-    
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Three.js for 3D Interactive Shield & Network Hero Canvas -->
+
+    <!-- Three.js for Interactive 3D Hero Visualization -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
-    <!-- Tailwind Configuration -->
     <script>
         tailwind.config = {
             theme: {
@@ -27,15 +26,15 @@
                     },
                     colors: {
                         midnight: '#040B14',
-                        navy: '#081424',
-                        card: '#0C1D33',
+                        navy: '#081526',
+                        card: '#0C1E35',
                         cyanGlow: '#00E5FF',
-                        tealAccent: '#00B8D4',
+                        tealAccent: '#0EA5E9',
                     },
                     boxShadow: {
                         'cyan-sm': '0 0 15px rgba(0, 229, 255, 0.15)',
-                        'cyan-md': '0 0 30px rgba(0, 229, 255, 0.25)',
-                        'cyan-lg': '0 0 50px rgba(0, 229, 255, 0.35)',
+                        'cyan-md': '0 0 25px rgba(0, 229, 255, 0.25)',
+                        'cyan-lg': '0 0 40px rgba(0, 229, 255, 0.35)',
                     }
                 }
             }
@@ -43,60 +42,62 @@
     </script>
 
     <style>
+        :root {
+            --bg-midnight: #040B14;
+            --bg-navy: #081526;
+            --accent-cyan: #00E5FF;
+        }
+
         body {
-            background-color: #040B14;
+            background-color: var(--bg-midnight);
             color: #F8FAFC;
             overflow-x: hidden;
         }
 
-        /* Subtle Architectural Circuit & Odisha Motif Grid Background */
+        /* Subtle Architectural & Cyber Grid Background */
         .bg-cyber-grid {
-            background-size: 48px 48px;
             background-image: 
+                radial-gradient(circle at 75% 20%, rgba(0, 229, 255, 0.08) 0%, transparent 45%),
+                radial-gradient(circle at 20% 80%, rgba(14, 165, 233, 0.06) 0%, transparent 40%),
                 linear-gradient(to right, rgba(0, 229, 255, 0.04) 1px, transparent 1px),
                 linear-gradient(to bottom, rgba(0, 229, 255, 0.04) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 48px 48px, 48px 48px;
         }
 
-        /* Glassmorphism Utilities */
+        /* Glassmorphism Panels */
         .glass-panel {
-            background: rgba(12, 29, 51, 0.65);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+            background: rgba(12, 30, 53, 0.72);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
             border: 1px solid rgba(0, 229, 255, 0.16);
         }
 
-        .glass-nav {
-            background: rgba(4, 11, 20, 0.82);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(0, 229, 255, 0.12);
+        .glass-panel-hover {
+            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+        }
+        .glass-panel-hover:hover {
+            transform: translateY(-4px);
+            border-color: rgba(0, 229, 255, 0.45);
+            box-shadow: 0 12px 30px -10px rgba(0, 229, 255, 0.25);
         }
 
         /* Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
+            height: 8px;
         }
         ::-webkit-scrollbar-track {
             background: #040B14;
         }
         ::-webkit-scrollbar-thumb {
-            background: #0E2947;
+            background: #163254;
             border-radius: 9999px;
         }
         ::-webkit-scrollbar-thumb:hover {
             background: #00E5FF;
         }
 
-        /* Animated Pulse Line */
-        @keyframes pulseGlow {
-            0%, 100% { opacity: 0.4; }
-            50% { opacity: 1; }
-        }
-        .animate-pulse-glow {
-            animation: pulseGlow 3s ease-in-out infinite;
-        }
-
-        /* Tab Transition */
+        /* Smooth View Fade */
         .fade-in {
             animation: fadeIn 0.35s ease-out forwards;
         }
@@ -106,30 +107,28 @@
         }
     </style>
 </head>
-<body class="bg-midnight text-slate-100 antialiased selection:bg-cyanGlow selection:text-midnight">
+<body class="antialiased selection:bg-cyanGlow selection:text-midnight">
 
-    <!-- ==================== 1. STICKY GLASSMORPHIC NAVBAR ==================== -->
-    <header class="fixed top-0 left-0 right-0 z-50 glass-nav transition-all duration-300">
+    <!-- ==================== 1. STICKY TOP NAVIGATION BAR ==================== -->
+    <header class="fixed top-0 inset-x-0 z-40 bg-midnight/85 backdrop-blur-md border-b border-cyanGlow/15">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <!-- Custom SVG Circuit-Shield Logo -->
-                <a href="#" class="flex items-center gap-3 group focus:outline-none">
-                    <div class="relative w-10 h-10 flex items-center justify-center rounded-xl bg-cyanGlow/10 border border-cyanGlow/40 group-hover:border-cyanGlow group-hover:shadow-cyan-sm transition-all">
-                        <svg class="w-6 h-6 text-cyanGlow" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16 3L5 7.5V15.5C5 22.4 9.7 28.7 16 30.5C22.3 28.7 27 22.4 27 15.5V7.5L16 3Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                            <path d="M11 19V12L21 20V12" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <circle cx="11" cy="11" r="1.5" fill="currentColor"/>
-                            <circle cx="21" cy="21" r="1.5" fill="currentColor"/>
+            <div class="flex items-center justify-between h-16 sm:h-20">
+                <!-- Brand Logo -->
+                <a href="#" onclick="switchView('public')" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyanGlow/20 to-tealAccent/10 border border-cyanGlow/40 flex items-center justify-center shadow-cyan-sm group-hover:shadow-cyan-md transition-all">
+                        <svg class="w-6 h-6 text-cyanGlow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L4 5.5V11.5C4 16.8 7.4 21.6 12 23C16.6 21.6 20 16.8 20 11.5V5.5L12 2Z" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M9 12L11 14L15 10" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </div>
-                    <div class="flex flex-col">
-                        <span class="font-display font-bold text-lg tracking-wider text-white leading-none">NETRAVEX</span>
-                        <span class="text-[10px] font-medium tracking-[0.22em] text-cyanGlow uppercase mt-1">Technologies</span>
+                    <div>
+                        <div class="font-display font-bold text-lg tracking-wide text-white leading-none">NETRAVEX</div>
+                        <div class="text-[10px] tracking-[0.2em] text-cyanGlow font-medium mt-0.5">TECHNOLOGIES</div>
                     </div>
                 </a>
 
                 <!-- Desktop Navigation Links -->
-                <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+                <nav id="publicNavLinks" class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-300">
                     <a href="#roles" class="hover:text-cyanGlow transition-colors">DPDP Roles</a>
                     <a href="#timeline" class="hover:text-cyanGlow transition-colors">Timeline</a>
                     <a href="#journey" class="hover:text-cyanGlow transition-colors">7-Step Journey</a>
@@ -137,10 +136,21 @@
                     <a href="#roadmap" class="hover:text-cyanGlow transition-colors">30-Day Plan</a>
                 </nav>
 
-                <!-- Primary CTA & Mobile Menu Button -->
-                <div class="flex items-center gap-3">
-                    <button onclick="openModal()" class="px-4 sm:px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyanGlow to-tealAccent text-midnight font-semibold text-xs sm:text-sm hover:shadow-cyan-md hover:brightness-110 active:scale-95 transition-all cursor-pointer">
-                        Book 30-Min Scoping Call
+                <!-- View Switcher (Public Site vs Admin Portal) & Primary CTA -->
+                <div class="flex items-center gap-2 sm:gap-3">
+                    <!-- Segmented View Toggle -->
+                    <div class="inline-flex p-1 rounded-xl bg-navy border border-cyanGlow/40 text-xs font-semibold shadow-cyan-sm">
+                        <button id="btnViewPublic" onclick="switchView('public')" class="px-3 py-1.5 rounded-lg bg-cyanGlow text-midnight transition-all cursor-pointer">
+                            Public Site
+                        </button>
+                        <button id="btnViewAdmin" onclick="switchView('admin')" class="px-3 py-1.5 rounded-lg text-slate-200 hover:text-white transition-all flex items-center gap-1.5 cursor-pointer">
+                            <span>Admin Portal</span>
+                            <span id="adminLeadCountBadge" class="px-1.5 py-0.5 rounded-full bg-cyanGlow/25 text-cyanGlow text-[10px] font-bold">5</span>
+                        </button>
+                    </div>
+
+                    <button id="navScopingCta" onclick="openModal()" class="hidden sm:inline-flex px-4 py-2.5 rounded-xl bg-gradient-to-r from-cyanGlow to-tealAccent text-midnight font-semibold text-xs sm:text-sm hover:shadow-cyan-md hover:brightness-110 active:scale-95 transition-all cursor-pointer">
+                        Book 30-Min Call
                     </button>
                     <button id="mobileMenuBtn" onclick="toggleMobileMenu()" aria-label="Toggle Menu" class="md:hidden p-2.5 rounded-xl bg-card border border-cyanGlow/20 text-slate-200 hover:text-cyanGlow">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -153,476 +163,513 @@
 
         <!-- Mobile Dropdown Nav -->
         <div id="mobileMenu" class="hidden md:hidden bg-navy/95 border-b border-cyanGlow/20 px-6 py-4 space-y-3">
-            <a href="#roles" onclick="toggleMobileMenu()" class="block py-2 text-sm text-slate-300 hover:text-cyanGlow">DPDP Roles & Data Lifecycle</a>
-            <a href="#timeline" onclick="toggleMobileMenu()" class="block py-2 text-sm text-slate-300 hover:text-cyanGlow">Regulatory Timeline</a>
-            <a href="#journey" onclick="toggleMobileMenu()" class="block py-2 text-sm text-slate-300 hover:text-cyanGlow">7-Step Protection Journey</a>
-            <a href="#scorecard" onclick="toggleMobileMenu()" class="block py-2 text-sm text-slate-300 hover:text-cyanGlow">10-Point Readiness Scorecard</a>
-            <a href="#roadmap" onclick="toggleMobileMenu()" class="block py-2 text-sm text-slate-300 hover:text-cyanGlow">30-Day Starter Roadmap</a>
+            <a href="#roles" onclick="switchView('public'); toggleMobileMenu()" class="block py-2 text-sm text-slate-300 hover:text-cyanGlow">DPDP Roles &amp; Data Lifecycle</a>
+            <a href="#timeline" onclick="switchView('public'); toggleMobileMenu()" class="block py-2 text-sm text-slate-300 hover:text-cyanGlow">Regulatory Timeline</a>
+            <a href="#journey" onclick="switchView('public'); toggleMobileMenu()" class="block py-2 text-sm text-slate-300 hover:text-cyanGlow">7-Step Protection Journey</a>
+            <a href="#scorecard" onclick="switchView('public'); toggleMobileMenu()" class="block py-2 text-sm text-slate-300 hover:text-cyanGlow">10-Point Readiness Scorecard</a>
+            <a href="#roadmap" onclick="switchView('public'); toggleMobileMenu()" class="block py-2 text-sm text-slate-300 hover:text-cyanGlow">30-Day Starter Roadmap</a>
+            <button onclick="switchView('admin'); toggleMobileMenu()" class="w-full py-2.5 rounded-xl border border-cyanGlow/40 text-cyanGlow font-bold text-xs">Open Admin Portal (5)</button>
+            <button onclick="openModal(); toggleMobileMenu()" class="w-full mt-2 py-2.5 rounded-xl bg-cyanGlow text-midnight font-bold text-xs">Book 30-Min Scoping Call</button>
         </div>
     </header>
 
-    <!-- ==================== 2. HERO SECTION WITH 3D THREE.JS CANVAS ==================== -->
-    <section class="relative min-h-screen pt-28 pb-16 lg:pt-32 lg:pb-24 flex items-center bg-cyber-grid overflow-hidden">
-        <!-- Ambient Radial Glows -->
-        <div class="absolute top-1/4 -left-32 w-96 h-96 bg-cyanGlow/10 rounded-full blur-[120px] pointer-events-none"></div>
-        <div class="absolute bottom-10 right-0 w-[500px] h-[500px] bg-tealAccent/10 rounded-full blur-[140px] pointer-events-none"></div>
+    <!-- ==================== PUBLIC SITE WRAPPER ==================== -->
+    <main id="publicSiteView">
 
-        <!-- Subtle Odisha Architectural Spire & Cable-Bridge Line-Art Background SVG -->
-        <svg class="absolute bottom-0 left-0 w-full max-w-4xl opacity-[0.07] pointer-events-none text-cyanGlow" viewBox="0 0 900 320" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- Kalinga Temple Spire Silhouette -->
-            <path d="M120 310V230H150V190H170V145H185V105H198V70L210 45L222 70V105H235V145H250V190H270V230H300V310" stroke="currentColor" stroke-width="2"/>
-            <path d="M210 20V45M210 25L232 32L210 38" stroke="currentColor" stroke-width="2"/>
-            <path d="M150 230H270M170 190H250M185 145H235M198 105H222" stroke="currentColor" stroke-width="1.5"/>
-            <!-- Cable-Stayed Bridge Motif -->
-            <path d="M300 285H880" stroke="currentColor" stroke-width="2.5"/>
-            <path d="M540 285V115M552 285V115" stroke="currentColor" stroke-width="2.5"/>
-            <path d="M540 130L360 285M540 155L410 285M540 180L460 285M552 130L730 285M552 155L680 285M552 180L630 285" stroke="currentColor" stroke-width="1.2"/>
-        </svg>
+        <!-- ==================== 2. HERO SECTION WITH 3D THREE.JS CANVAS ==================== -->
+        <section class="relative min-h-screen pt-24 pb-16 flex items-center bg-cyber-grid overflow-hidden">
+            <!-- Subtle Odisha Architectural Wireframe SVG Background Motif -->
+            <svg class="absolute bottom-0 left-0 w-full max-w-4xl opacity-10 pointer-events-none text-cyanGlow" viewBox="0 0 800 260" fill="none" stroke="currentColor" stroke-width="1.2">
+                <!-- Kalinga Temple Spire Outline -->
+                <path d="M120 250 V170 L145 120 L165 75 L185 45 L205 75 L225 120 L250 170 V250" />
+                <path d="M140 140 H230 M152 110 H218 M164 85 H206 M185 45 V25 M185 28 L205 34 L185 40" />
+                <path d="M70 250 V195 L95 160 L120 195 V250" />
+                <!-- Cable-Stayed Bridge Motif -->
+                <path d="M320 250 V90 M335 250 V90 M260 215 H680" />
+                <path d="M320 105 L270 215 M320 130 L290 215 M335 105 L430 215 M335 125 L400 215 M335 145 L370 215" />
+            </svg>
 
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                
-                <!-- Left Column: Value Proposition -->
-                <div class="lg:col-span-7 space-y-6">
-                    <!-- Location Badge -->
-                    <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-cyanGlow/10 border border-cyanGlow/30 text-cyanGlow text-xs font-semibold tracking-wider uppercase">
-                        <span class="w-2 h-2 rounded-full bg-cyanGlow animate-ping"></span>
-                        Bhubaneswar, Odisha • Eastern India
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+                    <!-- Left Column: Hero Messaging -->
+                    <div class="lg:col-span-7 space-y-6">
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyanGlow/10 border border-cyanGlow/30 text-cyanGlow text-xs font-medium tracking-wide">
+                            <span class="w-2 h-2 rounded-full bg-cyanGlow animate-pulse"></span>
+                            BHUBANESWAR, ODISHA &bull; EASTERN INDIA
+                        </div>
+
+                        <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.12]">
+                            Practical Data Privacy.<br>
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyanGlow to-tealAccent">Stronger Digital Trust.</span>
+                        </h1>
+
+                        <p class="text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed">
+                            DPDP Act &amp; Rules readiness support for <strong class="text-white font-semibold">co-operative banks and growing enterprises</strong>. We make privacy obligations easier to understand, prioritise, and put into everyday banking practice.
+                        </p>
+
+                        <div class="flex flex-wrap items-center gap-4 pt-2">
+                            <button onclick="openModal()" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-cyanGlow to-tealAccent text-midnight font-bold text-sm sm:text-base shadow-cyan-md hover:shadow-cyan-lg hover:brightness-110 transition-all cursor-pointer">
+                                Start 30-Min Scoping Call &rarr;
+                            </button>
+                            <a href="#scorecard" class="px-6 py-3.5 rounded-xl glass-panel text-white font-semibold text-sm sm:text-base hover:border-cyanGlow/50 transition-all">
+                                Try 10-Point Readiness Check
+                            </a>
+                        </div>
+
+                        <!-- At-A-Glance 4 Pillars Strip -->
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6">
+                            <div class="glass-panel rounded-xl p-3.5">
+                                <div class="text-cyanGlow text-xs font-bold uppercase tracking-wider">Who We Are</div>
+                                <div class="text-xs text-slate-300 mt-1">Tech-led privacy team in Bhubaneswar</div>
+                            </div>
+                            <div class="glass-panel rounded-xl p-3.5">
+                                <div class="text-cyanGlow text-xs font-bold uppercase tracking-wider">Who We Serve</div>
+                                <div class="text-xs text-slate-300 mt-1">Co-operative banks &amp; regional enterprises</div>
+                            </div>
+                            <div class="glass-panel rounded-xl p-3.5">
+                                <div class="text-cyanGlow text-xs font-bold uppercase tracking-wider">Regional Focus</div>
+                                <div class="text-xs text-slate-300 mt-1">Odisha first, Eastern India perspective</div>
+                            </div>
+                            <div class="glass-panel rounded-xl p-3.5">
+                                <div class="text-cyanGlow text-xs font-bold uppercase tracking-wider">Our Purpose</div>
+                                <div class="text-xs text-slate-300 mt-1">Turn DPDP policy into audit-ready evidence</div>
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- Main Headline -->
-                    <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.12]">
-                        Practical Data Privacy. <br>
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyanGlow via-teal-300 to-white">
-                            Stronger Digital Trust.
+                    <!-- Right Column: Interactive Three.js 3D Security Node Canvas -->
+                    <div class="lg:col-span-5">
+                        <div class="relative rounded-2xl glass-panel p-2 shadow-cyan-md">
+                            <div id="hero3dContainer" class="w-full h-[340px] sm:h-[400px] rounded-xl overflow-hidden bg-midnight/90 relative cursor-grab active:cursor-grabbing">
+                                <!-- Overlay HUD Tags -->
+                                <div class="absolute top-3 left-3 pointer-events-none flex items-center gap-2 text-[11px] font-mono text-cyanGlow/80">
+                                    <span class="inline-block w-2 h-2 rounded-full bg-cyanGlow"></span>
+                                    DPDP_SHIELD_NODE.GLB
+                                </div>
+                                <div class="absolute top-3 right-3 pointer-events-none text-[10px] font-mono text-slate-400">
+                                    DRAG / HOVER TO TILT
+                                </div>
+                                <div class="absolute bottom-3 inset-x-3 pointer-events-none flex justify-between items-center text-[11px] bg-midnight/80 backdrop-blur-md px-3 py-2 rounded-lg border border-cyanGlow/20">
+                                    <span class="text-slate-300">Trust built at every hand-off</span>
+                                    <span class="text-cyanGlow font-semibold">DPDP Act 2023</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 3. DPDP ROLES & DATA LIFECYCLE ==================== -->
+        <section id="roles" class="py-20 bg-navy/60 border-y border-cyanGlow/10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto">
+                    <span class="text-xs font-bold tracking-widest uppercase text-cyanGlow">DPDP Act in Plain Language</span>
+                    <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mt-2">Three Simple Roles in Every Bank</h2>
+                    <p class="text-sm sm:text-base text-slate-300 mt-3">
+                        Understanding who owns personal data, who decides how it is used, and who processes it on the bank's instructions.
+                    </p>
+                </div>
+
+                <!-- 3 Roles Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+                    <div class="glass-panel glass-panel-hover rounded-2xl p-6 relative">
+                        <div class="w-11 h-11 rounded-xl bg-cyanGlow/15 border border-cyanGlow/30 flex items-center justify-center text-cyanGlow font-display font-bold text-lg">1</div>
+                        <h3 class="font-display text-xl font-bold text-white mt-4">Data Principal</h3>
+                        <p class="text-sm text-slate-300 mt-2 leading-relaxed">
+                            The <strong class="text-white">customer or employee</strong> whose personal information is collected—such as KYC documents, phone numbers, account balances, or service tickets.
+                        </p>
+                        <div class="mt-4 pt-4 border-t border-slate-800 text-xs text-cyanGlow font-medium">
+                            Empowered with rights to access, correct, erase &amp; withdraw consent
+                        </div>
+                    </div>
+
+                    <div class="glass-panel glass-panel-hover rounded-2xl p-6 relative border-cyanGlow/40 shadow-cyan-sm">
+                        <div class="w-11 h-11 rounded-xl bg-cyanGlow text-midnight flex items-center justify-center font-display font-bold text-lg">2</div>
+                        <h3 class="font-display text-xl font-bold text-white mt-4">Data Fiduciary (The Bank)</h3>
+                        <p class="text-sm text-slate-300 mt-2 leading-relaxed">
+                            The <strong class="text-white">co-operative bank or enterprise</strong> deciding why and how personal data is collected, stored, and used to deliver banking services.
+                        </p>
+                        <div class="mt-4 pt-4 border-t border-slate-800 text-xs text-cyanGlow font-medium">
+                            Accountable for notices, lawful purpose, security &amp; breach response
+                        </div>
+                    </div>
+
+                    <div class="glass-panel glass-panel-hover rounded-2xl p-6 relative">
+                        <div class="w-11 h-11 rounded-xl bg-cyanGlow/15 border border-cyanGlow/30 flex items-center justify-center text-cyanGlow font-display font-bold text-lg">3</div>
+                        <h3 class="font-display text-xl font-bold text-white mt-4">Data Processor</h3>
+                        <p class="text-sm text-slate-300 mt-2 leading-relaxed">
+                            Any <strong class="text-white">third-party service provider</strong> (CBS vendor, SMS gateway, KYC verification agency, cloud backup) processing data strictly on the bank's instructions.
+                        </p>
+                        <div class="mt-4 pt-4 border-t border-slate-800 text-xs text-cyanGlow font-medium">
+                            Governed by clear contracts, security clauses &amp; monitoring
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5-Stage Data Hand-off Bar -->
+                <div class="mt-14 glass-panel rounded-2xl p-6 sm:p-8">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-6 border-b border-slate-800">
+                        <div>
+                            <h4 class="font-display text-lg font-bold text-white">The 5-Stage Banking Data Lifecycle</h4>
+                            <p class="text-xs text-slate-400">Digital trust is built and verified at every hand-off across your systems.</p>
+                        </div>
+                        <span class="inline-flex items-center px-3 py-1 rounded-full bg-cyanGlow/10 text-cyanGlow text-xs font-semibold">
+                            End-to-End Traceability
                         </span>
-                    </h1>
-
-                    <!-- Subheadline -->
-                    <p class="text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed">
-                        DPDP Act &amp; Rules readiness support for <strong class="text-white font-medium">co-operative banks and growing enterprises</strong>. We make privacy obligations easier to understand, prioritise, and put into everyday banking practice.
-                    </p>
-
-                    <!-- Action Buttons -->
-                    <div class="flex flex-wrap items-center gap-4 pt-2">
-                        <button onclick="openModal()" class="px-6 py-3.5 rounded-xl bg-cyanGlow text-midnight font-bold text-sm sm:text-base hover:shadow-cyan-md hover:bg-cyan-300 transition-all flex items-center gap-2 cursor-pointer">
-                            <span>Start 30-Min Scoping Call</span>
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
-                        </button>
-                        <a href="#scorecard" class="px-6 py-3.5 rounded-xl glass-panel text-white font-semibold text-sm sm:text-base hover:border-cyanGlow/60 transition-all">
-                            Try 10-Point Readiness Check
-                        </a>
                     </div>
 
-                    <!-- Quick At-a-Glance Pillars -->
-                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6 border-t border-slate-800/80">
-                        <div class="p-3 rounded-xl bg-navy/60 border border-slate-800">
-                            <div class="text-xs text-cyanGlow font-semibold">WHO WE ARE</div>
-                            <div class="text-xs text-slate-300 mt-1">Tech-led privacy team in Bhubaneswar</div>
+                    <div class="grid grid-cols-1 sm:grid-cols-5 gap-4 mt-6">
+                        <div class="p-4 rounded-xl bg-midnight/70 border border-slate-800">
+                            <div class="text-xs font-mono text-cyanGlow">01 // COLLECT</div>
+                            <div class="font-semibold text-white text-sm mt-1">Onboarding &amp; KYC</div>
+                            <p class="text-xs text-slate-400 mt-1">Customer applies or updates personal details at branch or portal.</p>
                         </div>
-                        <div class="p-3 rounded-xl bg-navy/60 border border-slate-800">
-                            <div class="text-xs text-cyanGlow font-semibold">WHO WE SERVE</div>
-                            <div class="text-xs text-slate-300 mt-1">Co-operative banks &amp; regional enterprises</div>
+                        <div class="p-4 rounded-xl bg-midnight/70 border border-slate-800">
+                            <div class="text-xs font-mono text-cyanGlow">02 // USE</div>
+                            <div class="font-semibold text-white text-sm mt-1">Service Delivery</div>
+                            <p class="text-xs text-slate-400 mt-1">Operations &amp; branch teams process records to run accounts.</p>
                         </div>
-                        <div class="p-3 rounded-xl bg-navy/60 border border-slate-800">
-                            <div class="text-xs text-cyanGlow font-semibold">REGIONAL FOCUS</div>
-                            <div class="text-xs text-slate-300 mt-1">Odisha first, Eastern India perspective</div>
+                        <div class="p-4 rounded-xl bg-midnight/70 border border-slate-800">
+                            <div class="text-xs font-mono text-cyanGlow">03 // SHARE</div>
+                            <div class="font-semibold text-white text-sm mt-1">Vendors &amp; Partners</div>
+                            <p class="text-xs text-slate-400 mt-1">Payment networks, SMS providers, or regulators receive limited data.</p>
                         </div>
-                        <div class="p-3 rounded-xl bg-navy/60 border border-slate-800">
-                            <div class="text-xs text-cyanGlow font-semibold">OUR PURPOSE</div>
-                            <div class="text-xs text-slate-300 mt-1">Turn DPDP policy into audit-ready evidence</div>
+                        <div class="p-4 rounded-xl bg-midnight/70 border border-slate-800">
+                            <div class="text-xs font-mono text-cyanGlow">04 // STORE</div>
+                            <div class="font-semibold text-white text-sm mt-1">Systems &amp; Backups</div>
+                            <p class="text-xs text-slate-400 mt-1">Records reside in Core Banking, branch files, and recovery archives.</p>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Right Column: Interactive Three.js 3D Hero Canvas -->
-                <div class="lg:col-span-5 relative">
-                    <div class="relative w-full h-[360px] sm:h-[430px] rounded-2xl glass-panel shadow-cyan-md overflow-hidden flex items-center justify-center">
-                        <!-- Top HUD Label -->
-                        <div class="absolute top-4 left-4 right-4 flex items-center justify-between text-[11px] font-mono text-cyanGlow/80 z-10 pointer-events-none">
-                            <span class="flex items-center gap-1.5">
-                                <span class="w-1.5 h-1.5 rounded-full bg-cyanGlow"></span>
-                                DPDP_SHIELD_NODE.GLB
-                            </span>
-                            <span>DRAG / HOVER TO TILT</span>
+                        <div class="p-4 rounded-xl bg-midnight/70 border border-slate-800">
+                            <div class="text-xs font-mono text-cyanGlow">05 // DELETE</div>
+                            <div class="font-semibold text-white text-sm mt-1">Safe Erasure</div>
+                            <p class="text-xs text-slate-400 mt-1">Data is securely removed or anonymised once statutory duties end.</p>
                         </div>
-
-                        <!-- Three.js Canvas Container -->
-                        <div id="hero-3d-container" class="w-full h-full cursor-grab active:cursor-grabbing"></div>
-
-                        <!-- Bottom Status Bar -->
-                        <div class="absolute bottom-3 left-4 right-4 px-3 py-2 rounded-xl bg-midnight/80 border border-cyanGlow/20 flex items-center justify-between text-xs text-slate-300 pointer-events-none">
-                            <span>Trust built at every hand-off</span>
-                            <span class="text-cyanGlow font-semibold">DPDP Act 2023</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== 3. DIGITAL TRUST CHALLENGE & 3 CORE ROLES ==================== -->
-    <section id="roles" class="py-20 lg:py-28 bg-navy/50 border-y border-slate-800/80 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="max-w-3xl">
-                <span class="text-xs font-bold tracking-widest uppercase text-cyanGlow">DPDP Act in Plain Language</span>
-                <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mt-2">
-                    A Bank Example in Three Simple Roles
-                </h2>
-                <p class="text-slate-300 mt-3 text-base leading-relaxed">
-                    Every day, a co-operative bank handles KYC records, account balances, employee details, and service requests. Understanding who owns the decision versus who processes the data is the foundation of compliance.
-                </p>
-            </div>
-
-            <!-- Interactive 3-Role Cards -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
-                <!-- Role 1 -->
-                <div onclick="highlightRole(1)" id="role-card-1" class="glass-panel rounded-2xl p-6 sm:p-8 cursor-pointer transition-all duration-300 border-cyanGlow shadow-cyan-sm hover:-translate-y-1">
-                    <div class="flex items-center justify-between mb-6">
-                        <div class="w-12 h-12 rounded-xl bg-cyanGlow/15 border border-cyanGlow/40 flex items-center justify-center text-cyanGlow font-display font-bold text-xl">
-                            01
-                        </div>
-                        <span class="text-xs font-semibold px-3 py-1 rounded-full bg-cyanGlow/10 text-cyanGlow">Individual</span>
-                    </div>
-                    <h3 class="font-display text-xl font-bold text-white">Data Principal</h3>
-                    <p class="text-sm text-slate-300 mt-2 leading-relaxed">
-                        The <strong class="text-white">customer or employee</strong> whose personal data is collected. They hold statutory rights to notice, access, correction, erasure, and grievance redressal.
-                    </p>
-                    <div class="mt-5 pt-4 border-t border-slate-800 text-xs text-cyanGlow font-medium">
-                        Example: Savings account holder updating mobile KYC
-                    </div>
-                </div>
-
-                <!-- Role 2 -->
-                <div onclick="highlightRole(2)" id="role-card-2" class="glass-panel rounded-2xl p-6 sm:p-8 cursor-pointer transition-all duration-300 hover:border-cyanGlow/60 hover:-translate-y-1">
-                    <div class="flex items-center justify-between mb-6">
-                        <div class="w-12 h-12 rounded-xl bg-cyanGlow/15 border border-cyanGlow/40 flex items-center justify-center text-cyanGlow font-display font-bold text-xl">
-                            02
-                        </div>
-                        <span class="text-xs font-semibold px-3 py-1 rounded-full bg-teal-500/15 text-teal-300">Decision Owner</span>
-                    </div>
-                    <h3 class="font-display text-xl font-bold text-white">Data Fiduciary</h3>
-                    <p class="text-sm text-slate-300 mt-2 leading-relaxed">
-                        The <strong class="text-white">co-operative bank</strong> deciding <em>why</em> and <em>how</em> personal data is used. Directly accountable for lawful basis, security safeguards, and breach reporting.
-                    </p>
-                    <div class="mt-5 pt-4 border-t border-slate-800 text-xs text-cyanGlow font-medium">
-                        Example: Co-operative bank issuing loans &amp; managing accounts
-                    </div>
-                </div>
-
-                <!-- Role 3 -->
-                <div onclick="highlightRole(3)" id="role-card-3" class="glass-panel rounded-2xl p-6 sm:p-8 cursor-pointer transition-all duration-300 hover:border-cyanGlow/60 hover:-translate-y-1">
-                    <div class="flex items-center justify-between mb-6">
-                        <div class="w-12 h-12 rounded-xl bg-cyanGlow/15 border border-cyanGlow/40 flex items-center justify-center text-cyanGlow font-display font-bold text-xl">
-                            03
-                        </div>
-                        <span class="text-xs font-semibold px-3 py-1 rounded-full bg-indigo-500/15 text-indigo-300">Specialist Vendor</span>
-                    </div>
-                    <h3 class="font-display text-xl font-bold text-white">Data Processor</h3>
-                    <p class="text-sm text-slate-300 mt-2 leading-relaxed">
-                        A <strong class="text-white">third-party service provider</strong> processing personal data strictly on the bank's documented instructions and contractual safeguards.
-                    </p>
-                    <div class="mt-5 pt-4 border-t border-slate-800 text-xs text-cyanGlow font-medium">
-                        Example: Core banking vendor, SMS gateway, or KYC agency
                     </div>
                 </div>
             </div>
+        </section>
 
-            <!-- 5-Stage Data Hand-off Lifecycle -->
-            <div class="mt-14 glass-panel rounded-2xl p-6 sm:p-8">
-                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-6">
+        <!-- ==================== 4. REGULATORY TIMELINE ==================== -->
+        <section id="timeline" class="py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
                     <div>
-                        <h4 class="font-display text-lg font-bold text-white">Trust is Built at Every Data Hand-Off</h4>
-                        <p class="text-xs text-slate-400">5-stage personal data lifecycle across bank touchpoints</p>
+                        <span class="text-xs font-bold tracking-widest uppercase text-cyanGlow">Why Prepare Now</span>
+                        <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mt-2">DPDP Implementation Runway</h2>
                     </div>
-                    <span class="text-xs font-mono text-cyanGlow bg-cyanGlow/10 px-3 py-1 rounded-lg self-start">END-TO-END GOVERNANCE</span>
-                </div>
-
-                <div class="grid grid-cols-1 sm:grid-cols-5 gap-4">
-                    <div class="p-4 rounded-xl bg-midnight/80 border border-slate-800 relative">
-                        <span class="text-xs font-bold text-cyanGlow">01. COLLECT</span>
-                        <p class="text-xs text-slate-300 mt-1.5">Customer applies for account/loan or updates KYC details with plain-language notice.</p>
-                    </div>
-                    <div class="p-4 rounded-xl bg-midnight/80 border border-slate-800 relative">
-                        <span class="text-xs font-bold text-cyanGlow">02. USE</span>
-                        <p class="text-xs text-slate-300 mt-1.5">Branch, operations &amp; compliance teams use data strictly for stated purposes.</p>
-                    </div>
-                    <div class="p-4 rounded-xl bg-midnight/80 border border-slate-800 relative">
-                        <span class="text-xs font-bold text-cyanGlow">03. SHARE</span>
-                        <p class="text-xs text-slate-300 mt-1.5">Payment networks, auditors, or SMS vendors receive only limited, governed data.</p>
-                    </div>
-                    <div class="p-4 rounded-xl bg-midnight/80 border border-slate-800 relative">
-                        <span class="text-xs font-bold text-cyanGlow">04. STORE</span>
-                        <p class="text-xs text-slate-300 mt-1.5">Records sit encrypted in core banking systems, branch files, and disaster backups.</p>
-                    </div>
-                    <div class="p-4 rounded-xl bg-midnight/80 border border-slate-800 relative">
-                        <span class="text-xs font-bold text-cyanGlow">05. DELETE</span>
-                        <p class="text-xs text-slate-300 mt-1.5">Securely erased or anonymised once purpose ends and statutory duties expire.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== 4. REGULATORY TIMELINE ("WHY NOW") ==================== -->
-    <section id="timeline" class="py-20 lg:py-28 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto">
-                <span class="text-xs font-bold tracking-widest uppercase text-cyanGlow">Why Now • Implementation Runway</span>
-                <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mt-2">
-                    Moving From Policy to Banking Practice
-                </h2>
-                <p class="text-slate-300 mt-3 text-sm sm:text-base">
-                    Co-operative banks in Odisha and Eastern India should use the phased transition runway to build clean data inventories and audit trails with confidence.
-                </p>
-            </div>
-
-            <!-- Horizontal Milestone Cards -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-14 relative">
-                <!-- Milestone 1 -->
-                <div class="glass-panel rounded-2xl p-6 sm:p-8 border-t-4 border-t-cyanGlow">
-                    <div class="flex items-center justify-between mb-4">
-                        <span class="px-3 py-1 rounded-full bg-cyanGlow/15 text-cyanGlow font-display font-bold text-sm">13 Nov 2025</span>
-                        <span class="text-xs text-slate-400">Phase 01</span>
-                    </div>
-                    <h3 class="font-display text-xl font-bold text-white">DPDP Rules Notified</h3>
-                    <p class="text-sm text-slate-300 mt-2 leading-relaxed">
-                        Formal notification of the Digital Personal Data Protection Rules (as referenced in the EY India Jan 2026 report), initiating the statutory readiness clock.
+                    <p class="text-xs text-slate-400 max-w-md">
+                        Indicative milestones based on the EY India DPDP Rules report (Jan 2026). Always validate dates against current official notifications.
                     </p>
                 </div>
 
-                <!-- Milestone 2 -->
-                <div class="glass-panel rounded-2xl p-6 sm:p-8 border-t-4 border-t-teal-400">
-                    <div class="flex items-center justify-between mb-4">
-                        <span class="px-3 py-1 rounded-full bg-teal-400/15 text-teal-300 font-display font-bold text-sm">Within 1 Year</span>
-                        <span class="text-xs text-slate-400">Phase 02</span>
-                    </div>
-                    <h3 class="font-display text-xl font-bold text-white">Consent Manager Framework</h3>
-                    <p class="text-sm text-slate-300 mt-2 leading-relaxed">
-                        Registration and operational readiness obligations for Consent Managers take effect, standardizing how digital consent is captured and revoked.
-                    </p>
-                </div>
-
-                <!-- Milestone 3 -->
-                <div class="glass-panel rounded-2xl p-6 sm:p-8 border-t-4 border-t-emerald-400">
-                    <div class="flex items-center justify-between mb-4">
-                        <span class="px-3 py-1 rounded-full bg-emerald-400/15 text-emerald-300 font-display font-bold text-sm">13 May 2027</span>
-                        <span class="text-xs text-slate-400">Phase 03</span>
-                    </div>
-                    <h3 class="font-display text-xl font-bold text-white">Core Fiduciary Obligations</h3>
-                    <p class="text-sm text-slate-300 mt-2 leading-relaxed">
-                        Full 18-month runway completion for core Data Fiduciary obligations—including notices, security controls, 72-hour breach reporting, and rights workflows.
-                    </p>
-                </div>
-            </div>
-
-            <p class="text-center text-xs text-slate-400 mt-6">
-                *Timing shown per EY India DPDP Rules Report (Jan 2026). Confirm current applicability and subsequent official MeitY/RBI notifications with qualified legal advisers.
-            </p>
-        </div>
-    </section>
-
-    <!-- ==================== 5. THE 7-STEP PROTECTION JOURNEY (INTERACTIVE EXPLORER) ==================== -->
-    <section id="journey" class="py-20 lg:py-28 bg-navy/50 border-y border-slate-800/80">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
-                <div>
-                    <span class="text-xs font-bold tracking-widest uppercase text-cyanGlow">Practical Methodology</span>
-                    <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mt-2">
-                        The 7-Step Protection Journey
-                    </h2>
-                </div>
-                <p class="text-sm text-slate-300 max-w-md">
-                    Click any step below to inspect the practical banking actions, audit evidence, and technical controls required.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                <!-- Left Step Selector Tabs -->
-                <div class="lg:col-span-5 space-y-2.5" id="journey-tabs">
-                    <!-- Populated via JS -->
-                </div>
-
-                <!-- Right Step Detail Panel -->
-                <div class="lg:col-span-7">
-                    <div id="journey-detail" class="glass-panel rounded-2xl p-6 sm:p-10 h-full flex flex-col justify-between border-cyanGlow/30">
-                        <!-- Populated via JS -->
-                    </div>
-                </div>
-            </div>
-
-            <!-- Security Controls Strip -->
-            <div class="mt-14">
-                <h3 class="font-display text-xl font-bold text-white mb-5">Core Technical Security Controls for Banks</h3>
-                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-                    <div class="p-4 rounded-xl glass-panel">
-                        <div class="text-cyanGlow font-semibold text-sm">Encryption</div>
-                        <p class="text-xs text-slate-400 mt-1">Scramble sensitive KYC &amp; account records at rest and in transit.</p>
-                    </div>
-                    <div class="p-4 rounded-xl glass-panel">
-                        <div class="text-cyanGlow font-semibold text-sm">Data Masking</div>
-                        <p class="text-xs text-slate-400 mt-1">Hide Aadhaar/PAN digits when full view is not required.</p>
-                    </div>
-                    <div class="p-4 rounded-xl glass-panel">
-                        <div class="text-cyanGlow font-semibold text-sm">Least Privilege</div>
-                        <p class="text-xs text-slate-400 mt-1">Role-based access so staff only view records needed for duty.</p>
-                    </div>
-                    <div class="p-4 rounded-xl glass-panel">
-                        <div class="text-cyanGlow font-semibold text-sm">Activity Logs</div>
-                        <p class="text-xs text-slate-400 mt-1">Retain immutable audit trails of who accessed what and when.</p>
-                    </div>
-                    <div class="p-4 rounded-xl glass-panel">
-                        <div class="text-cyanGlow font-semibold text-sm">Safe Backups</div>
-                        <p class="text-xs text-slate-400 mt-1">Tested recovery procedures to restore services after failure.</p>
-                    </div>
-                    <div class="p-4 rounded-xl glass-panel">
-                        <div class="text-cyanGlow font-semibold text-sm">Vendor Clauses</div>
-                        <p class="text-xs text-slate-400 mt-1">Binding DPDP security &amp; breach rules for third-party IT partners.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== 6. INTERACTIVE 10-POINT SCORECARD & 30-DAY ROADMAP ==================== -->
-    <section id="scorecard" class="py-20 lg:py-28 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-                
-                <!-- Left 7 Cols: Interactive 10-Point Readiness Scorecard -->
-                <div class="lg:col-span-7">
-                    <span class="text-xs font-bold tracking-widest uppercase text-cyanGlow">Interactive Assessment</span>
-                    <h2 class="font-display text-3xl font-bold text-white mt-2">
-                        10-Point DPDP Readiness Scorecard
-                    </h2>
-                    <p class="text-sm text-slate-300 mt-2">
-                        Check the controls your bank or enterprise already has in place to calculate your live readiness baseline.
-                    </p>
-
-                    <!-- Live Score Progress Header -->
-                    <div class="mt-6 p-5 rounded-2xl glass-panel border-cyanGlow/30">
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="text-sm font-semibold text-white">Estimated Readiness Score</span>
-                            <span id="score-badge" class="font-display text-2xl font-bold text-cyanGlow">0 / 100%</span>
-                        </div>
-                        <div class="w-full h-3 bg-midnight rounded-full overflow-hidden border border-slate-800">
-                            <div id="score-bar" class="h-full bg-gradient-to-r from-cyanGlow to-emerald-400 transition-all duration-500" style="width: 0%;"></div>
-                        </div>
-                        <p id="score-feedback" class="text-xs text-slate-300 mt-2.5">
-                            Select items below to evaluate your current DPDP readiness posture.
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="glass-panel rounded-2xl p-6 border-l-4 border-l-cyanGlow">
+                        <div class="text-xs font-mono text-cyanGlow uppercase">Milestone 01</div>
+                        <div class="font-display text-2xl font-bold text-white mt-1">13 Nov 2025</div>
+                        <div class="text-sm font-semibold text-slate-200 mt-2">DPDP Rules Notified</div>
+                        <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                            Formal rules framework notified, starting the structured transition clock for Indian organizations and banking institutions.
                         </p>
                     </div>
 
-                    <!-- 10 Interactive Checkboxes Grid -->
-                    <div id="scorecard-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-5">
+                    <div class="glass-panel rounded-2xl p-6 border-l-4 border-l-tealAccent">
+                        <div class="text-xs font-mono text-tealAccent uppercase">Milestone 02</div>
+                        <div class="font-display text-2xl font-bold text-white mt-1">Within 1 Year</div>
+                        <div class="text-sm font-semibold text-slate-200 mt-2">Consent Manager Obligations</div>
+                        <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                            Registration and operational standards for interoperable Consent Managers take effect during the first year.
+                        </p>
+                    </div>
+
+                    <div class="glass-panel rounded-2xl p-6 border-l-4 border-l-emerald-400">
+                        <div class="text-xs font-mono text-emerald-400 uppercase">Milestone 03</div>
+                        <div class="font-display text-2xl font-bold text-white mt-1">13 May 2027</div>
+                        <div class="text-sm font-semibold text-slate-200 mt-2">Core Data Fiduciary Obligations</div>
+                        <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                            18-month runway culminating in full enforcement of notice, consent, rights workflows, security safeguards, and 72-hour breach reporting.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 5. INTERACTIVE 7-STEP PROTECTION JOURNEY ==================== -->
+        <section id="journey" class="py-20 bg-navy/60 border-y border-cyanGlow/10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-3xl">
+                    <span class="text-xs font-bold tracking-widest uppercase text-cyanGlow">Practical Methodology</span>
+                    <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mt-2">The 7-Step Protection Journey</h2>
+                    <p class="text-sm sm:text-base text-slate-300 mt-3">
+                        Click through each step below to see how Netravex moves your bank from initial data visibility to audit-ready evidence.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-10 items-start">
+                    <!-- Step Selector List -->
+                    <div class="lg:col-span-5 space-y-2.5" id="journeyTabs">
+                        <!-- Populated via JS -->
+                    </div>
+
+                    <!-- Step Detail Card -->
+                    <div class="lg:col-span-7 glass-panel rounded-2xl p-6 sm:p-8 border-cyanGlow/30 shadow-cyan-sm" id="journeyDetailPanel">
                         <!-- Populated via JS -->
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <!-- Right 5 Cols: 30-Day Starter Roadmap -->
-                <div id="roadmap" class="lg:col-span-5">
-                    <span class="text-xs font-bold tracking-widest uppercase text-cyanGlow">Execution Plan</span>
-                    <h2 class="font-display text-3xl font-bold text-white mt-2">
-                        First 30 Days Roadmap
-                    </h2>
-                    <p class="text-sm text-slate-300 mt-2">
-                        Practical steps your co-operative bank can take immediately to build a defensible foundation.
-                    </p>
-
-                    <div class="space-y-4 mt-6">
-                        <!-- Days 1-5 -->
-                        <div class="p-5 rounded-2xl glass-panel border-l-4 border-l-cyanGlow">
-                            <div class="text-xs font-bold text-cyanGlow uppercase tracking-wider">Days 1 – 5</div>
-                            <h3 class="font-display text-lg font-bold text-white mt-1">Appoint Sponsor &amp; Coordinator</h3>
-                            <ul class="text-xs text-slate-300 mt-2 space-y-1.5 list-disc list-inside">
-                                <li>Board appoints an executive DPDP sponsor</li>
-                                <li>Nominate a working coordinator &amp; cross-functional team</li>
-                                <li>Hold kickoff meeting and define system scope</li>
-                            </ul>
+        <!-- ==================== 6. INTERACTIVE 10-POINT READINESS SCORECARD & 30-DAY ROADMAP ==================== -->
+        <section id="scorecard" class="py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+                    <!-- Left: Interactive 10-Point Readiness Scorecard -->
+                    <div class="lg:col-span-7 glass-panel rounded-2xl p-6 sm:p-8">
+                        <div class="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-slate-800">
+                            <div>
+                                <span class="text-xs font-bold tracking-widest uppercase text-cyanGlow">Self-Assessment Tool</span>
+                                <h2 class="font-display text-2xl sm:text-3xl font-bold text-white mt-1">10-Point Readiness Scorecard</h2>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-xs text-slate-400">Estimated Readiness</div>
+                                <div id="scorecardValue" class="font-display text-3xl font-bold text-cyanGlow">0 / 10</div>
+                            </div>
                         </div>
 
-                        <!-- Days 6-12 -->
-                        <div class="p-5 rounded-2xl glass-panel border-l-4 border-l-teal-400">
-                            <div class="text-xs font-bold text-teal-300 uppercase tracking-wider">Days 6 – 12</div>
-                            <h3 class="font-display text-lg font-bold text-white mt-1">List Systems, Data &amp; Vendors</h3>
-                            <ul class="text-xs text-slate-300 mt-2 space-y-1.5 list-disc list-inside">
-                                <li>Catalog Core Banking, CRM, branch files &amp; email systems</li>
-                                <li>Map personal data types (KYC, transactions, HR)</li>
-                                <li>Identify third-party processors &amp; cross-border flows</li>
-                            </ul>
+                        <!-- Progress Bar -->
+                        <div class="w-full h-2.5 bg-midnight rounded-full overflow-hidden mt-5 border border-slate-800">
+                            <div id="scorecardProgressBar" class="h-full bg-gradient-to-r from-cyanGlow to-emerald-400 transition-all duration-300" style="width: 0%"></div>
+                        </div>
+                        <div class="flex justify-between items-center mt-2 text-xs text-slate-400">
+                            <span id="scorecardStatusText">Select your bank's existing controls to calculate your baseline.</span>
+                            <span id="scorecardPercent" class="font-mono text-cyanGlow">0%</span>
                         </div>
 
-                        <!-- Days 13-20 -->
-                        <div class="p-5 rounded-2xl glass-panel border-l-4 border-l-sky-400">
-                            <div class="text-xs font-bold text-sky-300 uppercase tracking-wider">Days 13 – 20</div>
-                            <h3 class="font-display text-lg font-bold text-white mt-1">Review Notices, Rights &amp; Controls</h3>
-                            <ul class="text-xs text-slate-300 mt-2 space-y-1.5 list-disc list-inside">
-                                <li>Audit customer privacy notices &amp; consent capture</li>
-                                <li>Test customer rights &amp; 90-day grievance routing</li>
-                                <li>Verify user access permissions, logs, backups &amp; patching</li>
-                            </ul>
+                        <!-- 10 Checkboxes -->
+                        <div id="scorecardChecklist" class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-6">
+                            <!-- Populated via JS -->
                         </div>
 
-                        <!-- Days 21-30 -->
-                        <div class="p-5 rounded-2xl glass-panel border-l-4 border-l-emerald-400">
-                            <div class="text-xs font-bold text-emerald-300 uppercase tracking-wider">Days 21 – 30</div>
-                            <h3 class="font-display text-lg font-bold text-white mt-1">Incident Playbook &amp; Prioritisation</h3>
-                            <ul class="text-xs text-slate-300 mt-2 space-y-1.5 list-disc list-inside">
-                                <li>Draft red-alert breach contacts &amp; 72-hour escalation list</li>
-                                <li>Prioritise high-impact compliance gaps &amp; quick wins</li>
-                                <li>Approve a realistic multi-quarter rollout plan</li>
-                            </ul>
+                        <div class="mt-6 pt-5 border-t border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                            <p class="text-xs text-slate-400">Want our team to validate your scorecard in a 30-minute call?</p>
+                            <button onclick="openModal()" class="px-5 py-2.5 rounded-xl bg-cyanGlow text-midnight font-bold text-xs sm:text-sm hover:bg-cyan-300 transition-colors shrink-0 cursor-pointer">
+                                Send Score &amp; Book Call
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Right: 30-Day Starter Roadmap -->
+                    <div id="roadmap" class="lg:col-span-5 space-y-4">
+                        <div class="mb-2">
+                            <span class="text-xs font-bold tracking-widest uppercase text-cyanGlow">First 30 Days</span>
+                            <h2 class="font-display text-2xl sm:text-3xl font-bold text-white mt-1">Starter Readiness Roadmap</h2>
+                            <p class="text-xs sm:text-sm text-slate-300 mt-1">A non-disruptive 4-week sprint to build your foundation.</p>
+                        </div>
+
+                        <div class="glass-panel rounded-2xl p-5 border-l-4 border-l-cyanGlow">
+                            <div class="flex justify-between items-center">
+                                <span class="font-mono text-xs font-bold text-cyanGlow">DAYS 01 – 05</span>
+                                <span class="text-[11px] px-2 py-0.5 rounded bg-cyanGlow/10 text-cyanGlow">Governance</span>
+                            </div>
+                            <h3 class="font-display font-bold text-white text-base mt-1">Appoint Sponsor &amp; Coordinator</h3>
+                            <p class="text-xs text-slate-300 mt-1.5 leading-relaxed">
+                                Board appoints a DPDP sponsor, nominates a working coordinator, agrees on scope, and holds a short kickoff meeting.
+                            </p>
+                        </div>
+
+                        <div class="glass-panel rounded-2xl p-5 border-l-4 border-l-tealAccent">
+                            <div class="flex justify-between items-center">
+                                <span class="font-mono text-xs font-bold text-tealAccent">DAYS 06 – 12</span>
+                                <span class="text-[11px] px-2 py-0.5 rounded bg-tealAccent/10 text-tealAccent">Discovery</span>
+                            </div>
+                            <h3 class="font-display font-bold text-white text-base mt-1">List Systems, Data &amp; Vendors</h3>
+                            <p class="text-xs text-slate-300 mt-1.5 leading-relaxed">
+                                Catalog Core Banking, branch files, and service providers holding personal data, noting any cross-border flows.
+                            </p>
+                        </div>
+
+                        <div class="glass-panel rounded-2xl p-5 border-l-4 border-l-sky-400">
+                            <div class="flex justify-between items-center">
+                                <span class="font-mono text-xs font-bold text-sky-400">DAYS 13 – 20</span>
+                                <span class="text-[11px] px-2 py-0.5 rounded bg-sky-400/10 text-sky-400">Controls &amp; Rights</span>
+                            </div>
+                            <h3 class="font-display font-bold text-white text-base mt-1">Review Notices, Rights &amp; Access</h3>
+                            <p class="text-xs text-slate-300 mt-1.5 leading-relaxed">
+                                Test customer rights/grievance channels and audit user role permissions, activity logs, backups, and patching.
+                            </p>
+                        </div>
+
+                        <div class="glass-panel rounded-2xl p-5 border-l-4 border-l-emerald-400">
+                            <div class="flex justify-between items-center">
+                                <span class="font-mono text-xs font-bold text-emerald-400">DAYS 21 – 30</span>
+                                <span class="text-[11px] px-2 py-0.5 rounded bg-emerald-400/10 text-emerald-400">Action Plan</span>
+                            </div>
+                            <h3 class="font-display font-bold text-white text-base mt-1">Draft Playbook &amp; Prioritise Gaps</h3>
+                            <p class="text-xs text-slate-300 mt-1.5 leading-relaxed">
+                                Establish emergency incident contacts, draft a 72-hour breach playbook, and agree on quick wins.
+                            </p>
                         </div>
                     </div>
                 </div>
-
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ==================== 7. CTA BANNER & FOOTER ==================== -->
-    <section class="py-16 bg-gradient-to-b from-navy/60 to-midnight border-t border-cyanGlow/20">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="glass-panel rounded-3xl p-8 sm:p-12 shadow-cyan-md border-cyanGlow/30">
-                <span class="text-xs font-bold tracking-widest uppercase text-cyanGlow">Start With a Scoped Conversation</span>
-                <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mt-3">
-                    Ready to Assess Your DPDP Readiness?
-                </h2>
-                <p class="text-slate-300 max-w-2xl mx-auto mt-3 text-sm sm:text-base">
-                    Schedule a no-commitment 30-minute scoping call with Netravex Technologies in Bhubaneswar to review your current posture, priorities, and next steps.
-                </p>
-                <div class="mt-7 flex flex-wrap justify-center gap-4">
-                    <button onclick="openModal()" class="px-7 py-3.5 rounded-xl bg-cyanGlow text-midnight font-bold text-sm sm:text-base hover:shadow-cyan-md hover:bg-cyan-300 transition-all cursor-pointer">
-                        Book 30-Minute Scoping Call
+        <!-- ==================== 7. FOOTER & SCOPING CALL BANNER ==================== -->
+        <footer class="bg-navy border-t border-cyanGlow/15 pt-16 pb-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- CTA Card -->
+                <div class="glass-panel rounded-2xl p-8 sm:p-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 border-cyanGlow/30 shadow-cyan-md mb-14">
+                    <div class="max-w-2xl">
+                        <span class="text-xs font-bold tracking-widest uppercase text-cyanGlow">No-Commitment Scoping Conversation</span>
+                        <h2 class="font-display text-2xl sm:text-3xl font-bold text-white mt-1">Start with a 30-Minute Scoping Call</h2>
+                        <p class="text-sm text-slate-300 mt-2">
+                            Understand your bank's current DPDP readiness state, identify immediate quick wins, and agree on a realistic 30-day roadmap tailored for Odisha &amp; Eastern India.
+                        </p>
+                    </div>
+                    <button onclick="openModal()" class="px-7 py-4 rounded-xl bg-gradient-to-r from-cyanGlow to-tealAccent text-midnight font-bold text-sm sm:text-base shadow-cyan-md hover:brightness-110 transition-all shrink-0 cursor-pointer">
+                        Schedule Scoping Call &rarr;
+                    </button>
+                </div>
+
+                <!-- Footer Metadata -->
+                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 pb-8 border-b border-slate-800/80">
+                    <div>
+                        <div class="font-display font-bold text-lg text-white">NETRAVEX TECHNOLOGIES</div>
+                        <div class="text-xs text-slate-400 mt-1">Bhubaneswar, Odisha &bull; Practical Data Privacy. Stronger Digital Trust.</div>
+                    </div>
+                    <div class="flex flex-wrap gap-6 text-xs text-slate-400">
+                        <a href="#roles" class="hover:text-cyanGlow">DPDP Roles</a>
+                        <a href="#journey" class="hover:text-cyanGlow">7-Step Journey</a>
+                        <a href="#scorecard" class="hover:text-cyanGlow">Readiness Scorecard</a>
+                        <button onclick="switchView('admin')" class="text-cyanGlow hover:underline cursor-pointer">Admin Portal</button>
+                    </div>
+                </div>
+
+                <div class="pt-6 flex flex-col sm:flex-row justify-between gap-4 text-[11px] text-slate-500">
+                    <p>
+                        <strong>Disclaimer:</strong> Plain-language educational overview, not formal legal advice. Legal applicability, timelines, and obligations under the DPDP Act, 2023 and Rules must be validated against official notifications and qualified legal advisers.
+                    </p>
+                    <p class="shrink-0">&copy; 2026 Netravex Technologies. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- ==================== ADMIN DASHBOARD PORTAL VIEW ==================== -->
+    <section id="adminPortalView" class="hidden min-h-screen pt-28 pb-20 bg-cyber-grid">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 fade-in">
+            <!-- Portal Top Header -->
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-slate-800">
+                <div>
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyanGlow/10 border border-cyanGlow/30 text-cyanGlow text-[11px] font-mono uppercase">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                        Neon Postgres + DPDP Audit Log Connected
+                    </div>
+                    <h1 class="font-display text-2xl sm:text-3xl font-bold text-white mt-2">
+                        Netravex Consulting Operations Portal
+                    </h1>
+                    <p class="text-xs sm:text-sm text-slate-400 mt-1">
+                        Manage incoming co-operative bank scoping inquiries, 10-point readiness scores, and verifiable consent timestamps.
+                    </p>
+                </div>
+
+                <div class="flex flex-wrap items-center gap-3">
+                    <button onclick="switchView('public'); setTimeout(() => openModal(), 150)" class="px-4 py-2.5 rounded-xl glass-panel text-cyanGlow text-xs font-semibold hover:border-cyanGlow transition-all cursor-pointer">
+                        + Simulate New Bank Inquiry
+                    </button>
+                    <button onclick="exportAdminCSV()" class="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-xs font-semibold transition-all cursor-pointer">
+                        Export Audit CSV
                     </button>
                 </div>
             </div>
+
+            <!-- 4 KPI Summary Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
+                <div class="glass-panel rounded-2xl p-5">
+                    <div class="text-xs text-slate-400 font-medium">Total Scoping Inquiries</div>
+                    <div class="flex items-end justify-between mt-2">
+                        <span id="kpiTotalInquiries" class="font-display text-3xl font-bold text-white">5</span>
+                        <span class="text-xs text-emerald-400 font-medium">Odisha &amp; East India</span>
+                    </div>
+                </div>
+
+                <div class="glass-panel rounded-2xl p-5">
+                    <div class="text-xs text-slate-400 font-medium">Avg. Readiness Score</div>
+                    <div class="flex items-end justify-between mt-2">
+                        <span id="kpiAvgScore" class="font-display text-3xl font-bold text-cyanGlow">4.6 / 10</span>
+                        <span class="text-xs text-slate-400">10-Point Baseline</span>
+                    </div>
+                </div>
+
+                <div class="glass-panel rounded-2xl p-5">
+                    <div class="text-xs text-slate-400 font-medium">High-Priority Leads (Score &le; 4)</div>
+                    <div class="flex items-end justify-between mt-2">
+                        <span id="kpiHighPriority" class="font-display text-3xl font-bold text-rose-400">3</span>
+                        <span class="text-xs text-rose-300/80">Immediate Roadmap Need</span>
+                    </div>
+                </div>
+
+                <div class="glass-panel rounded-2xl p-5">
+                    <div class="text-xs text-slate-400 font-medium">DPDP Consent Compliance</div>
+                    <div class="flex items-end justify-between mt-2">
+                        <span class="font-display text-3xl font-bold text-emerald-400">100%</span>
+                        <span class="text-xs text-emerald-300/80">Timestamped Logs</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filter & Search Bar -->
+            <div class="glass-panel rounded-2xl p-4 mt-8 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+                <div class="relative flex-1">
+                    <input id="adminSearchInput" oninput="renderAdminDashboard()" type="text" placeholder="Search by Bank Name, Reference ID (NVX-...), or Contact..." class="w-full pl-4 pr-4 py-2 rounded-xl bg-midnight border border-slate-700 text-xs sm:text-sm text-white focus:border-cyanGlow focus:outline-none">
+                </div>
+                <div class="flex items-center gap-2">
+                    <select id="adminStatusFilter" onchange="renderAdminDashboard()" class="px-3.5 py-2 rounded-xl bg-midnight border border-slate-700 text-xs sm:text-sm text-slate-200 focus:border-cyanGlow focus:outline-none">
+                        <option value="ALL">All Statuses</option>
+                        <option value="New">New</option>
+                        <option value="Scoping Scheduled">Scoping Scheduled</option>
+                        <option value="Audit In-Progress">Audit In-Progress</option>
+                        <option value="Closed">Closed</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Responsive Inquiries Table -->
+            <div class="glass-panel rounded-2xl overflow-hidden mt-6">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="border-b border-slate-800 bg-midnight/70 text-[11px] font-semibold uppercase tracking-wider text-slate-400">
+                                <th class="py-4 px-5">Ref ID</th>
+                                <th class="py-4 px-5">Bank / Organization</th>
+                                <th class="py-4 px-5">Contact &amp; Priority</th>
+                                <th class="py-4 px-5">Readiness Score</th>
+                                <th class="py-4 px-5">DPDP Consent Proof</th>
+                                <th class="py-4 px-5">Pipeline Status</th>
+                                <th class="py-4 px-5 text-right">Assessment</th>
+                            </tr>
+                        </thead>
+                        <tbody id="adminInquiriesTableBody" class="divide-y divide-slate-800/70 text-xs sm:text-sm">
+                            <!-- Populated via JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </section>
 
-    <footer class="bg-midnight border-t border-slate-800/80 py-12 text-xs text-slate-400">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-8 border-b border-slate-800/80">
-                <div>
-                    <div class="font-display font-bold text-base text-white tracking-wider">NETRAVEX TECHNOLOGIES</div>
-                    <p class="mt-1 text-slate-400">Practical Data Privacy &amp; DPDP Readiness Support • Bhubaneswar, Odisha, India</p>
-                </div>
-                <div class="flex flex-wrap gap-6 text-slate-300">
-                    <a href="#roles" class="hover:text-cyanGlow">DPDP Roles</a>
-                    <a href="#journey" class="hover:text-cyanGlow">7-Step Journey</a>
-                    <a href="#scorecard" class="hover:text-cyanGlow">Scorecard</a>
-                    <button onclick="openModal()" class="text-cyanGlow hover:underline cursor-pointer">Request Scoping Call</button>
-                </div>
-            </div>
-            <div class="pt-6 flex flex-col sm:flex-row justify-between gap-4 text-[11px] text-slate-500">
-                <p>
-                    <strong>Disclaimer:</strong> Plain-language educational overview, not formal legal advice. Legal applicability, timelines, and obligations under the DPDP Act, 2023 and Rules must be validated against official notifications and qualified legal advisers.
-                </p>
-                <p class="shrink-0">&copy; 2026 Netravex Technologies. All rights reserved.</p>
+    <!-- ==================== SCORECARD BREAKDOWN DRAWER / MODAL (ADMIN) ==================== -->
+    <div id="breakdownModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-midnight/85 backdrop-blur-md">
+        <div class="glass-panel rounded-2xl max-w-2xl w-full p-6 sm:p-8 relative border-cyanGlow/40 shadow-cyan-lg fade-in max-h-[90vh] overflow-y-auto">
+            <button onclick="closeBreakdownModal()" aria-label="Close Breakdown" class="absolute top-5 right-5 p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800/60 cursor-pointer">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+
+            <div id="breakdownContent">
+                <!-- Populated dynamically via JS -->
             </div>
         </div>
-    </footer>
+    </div>
 
     <!-- ==================== INTERACTIVE 30-MINUTE SCOPING CALL MODAL ==================== -->
     <div id="scopingModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-midnight/85 backdrop-blur-md">
@@ -637,34 +684,34 @@
                 <span class="text-xs font-bold tracking-wider uppercase text-cyanGlow">Bhubaneswar &amp; Eastern India</span>
                 <h3 class="font-display text-2xl font-bold text-white mt-1">Book a 30-Min Scoping Call</h3>
                 <p class="text-xs text-slate-300 mt-1.5">
-                    Share a few details about your bank or enterprise so we can tailor the readiness discussion.
+                    Your current 10-point scorecard baseline (<strong id="modalLiveScoreTag" class="text-cyanGlow">0/10</strong>) will be attached automatically for our readiness team.
                 </p>
 
                 <form id="scopingForm" onsubmit="handleBookingSubmit(event)" class="mt-5 space-y-4">
                     <div>
                         <label class="block text-xs font-medium text-slate-300 mb-1">Bank / Organization Name *</label>
-                        <input type="text" required placeholder="e.g., Odisha Urban Co-operative Bank" class="w-full px-3.5 py-2.5 rounded-xl bg-midnight border border-slate-700 text-sm text-white focus:border-cyanGlow focus:outline-none">
+                        <input id="inputOrgName" type="text" required placeholder="e.g., Khordha District Co-operative Bank" class="w-full px-3.5 py-2.5 rounded-xl bg-midnight border border-slate-700 text-sm text-white focus:border-cyanGlow focus:outline-none">
                     </div>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
                             <label class="block text-xs font-medium text-slate-300 mb-1">Your Name *</label>
-                            <input type="text" required placeholder="Full Name" class="w-full px-3.5 py-2.5 rounded-xl bg-midnight border border-slate-700 text-sm text-white focus:border-cyanGlow focus:outline-none">
+                            <input id="inputFullName" type="text" required placeholder="Full Name" class="w-full px-3.5 py-2.5 rounded-xl bg-midnight border border-slate-700 text-sm text-white focus:border-cyanGlow focus:outline-none">
                         </div>
                         <div>
                             <label class="block text-xs font-medium text-slate-300 mb-1">Role / Designation *</label>
-                            <input type="text" required placeholder="e.g., CEO, IT Head, Compliance" class="w-full px-3.5 py-2.5 rounded-xl bg-midnight border border-slate-700 text-sm text-white focus:border-cyanGlow focus:outline-none">
+                            <input id="inputRole" type="text" required placeholder="e.g., CEO, IT Head, Compliance" class="w-full px-3.5 py-2.5 rounded-xl bg-midnight border border-slate-700 text-sm text-white focus:border-cyanGlow focus:outline-none">
                         </div>
                     </div>
 
                     <div>
                         <label class="block text-xs font-medium text-slate-300 mb-1">Work Email or Phone Number *</label>
-                        <input type="text" required placeholder="name@bank.in or +91 98XXXXXXXX" class="w-full px-3.5 py-2.5 rounded-xl bg-midnight border border-slate-700 text-sm text-white focus:border-cyanGlow focus:outline-none">
+                        <input id="inputContact" type="text" required placeholder="name@bank.in or +91 98XXXXXXXX" class="w-full px-3.5 py-2.5 rounded-xl bg-midnight border border-slate-700 text-sm text-white focus:border-cyanGlow focus:outline-none">
                     </div>
 
                     <div>
                         <label class="block text-xs font-medium text-slate-300 mb-1">Primary Readiness Priority</label>
-                        <select class="w-full px-3.5 py-2.5 rounded-xl bg-midnight border border-slate-700 text-sm text-white focus:border-cyanGlow focus:outline-none">
+                        <select id="inputPriority" class="w-full px-3.5 py-2.5 rounded-xl bg-midnight border border-slate-700 text-sm text-white focus:border-cyanGlow focus:outline-none">
                             <option>30-Day Starter Readiness Assessment</option>
                             <option>Personal Data Inventory &amp; KYC Mapping</option>
                             <option>Customer Privacy Notices &amp; Consent Flow</option>
@@ -672,6 +719,14 @@
                             <option>Board / Staff DPDP Awareness Briefing</option>
                         </select>
                     </div>
+
+                    <!-- Explicit DPDP Consent Checkbox -->
+                    <label class="flex items-start gap-2.5 p-3 rounded-xl bg-midnight/70 border border-slate-800 cursor-pointer">
+                        <input id="inputConsent" type="checkbox" required class="mt-0.5 accent-cyan-400 w-4 h-4 rounded">
+                        <span class="text-[11px] text-slate-300 leading-relaxed">
+                            <strong>DPDP Consent Notice:</strong> I consent to Netravex Technologies processing my contact details and readiness score solely to schedule and prepare for our 30-minute scoping call.
+                        </span>
+                    </label>
 
                     <button type="submit" class="w-full py-3 rounded-xl bg-gradient-to-r from-cyanGlow to-tealAccent text-midnight font-bold text-sm hover:shadow-cyan-md transition-all cursor-pointer">
                         Confirm Scoping Request
@@ -686,29 +741,72 @@
                 </div>
                 <h4 class="font-display text-2xl font-bold text-white">Scoping Request Logged</h4>
                 <p class="text-sm text-slate-300 max-w-sm mx-auto">
-                    Thank you! Our Bhubaneswar readiness coordinator will reach out within 1 business day to confirm your 30-minute session.
+                    Your inquiry and readiness score have been logged with a verifiable DPDP consent timestamp and synced to the Admin Portal.
                 </p>
                 <div class="p-3 rounded-xl bg-midnight/80 border border-slate-800 text-xs text-cyanGlow font-mono" id="bookingRefId">
-                    REF: NTX-DPDP-2026
+                    REF: NVX-20260
                 </div>
-                <button onclick="closeModal()" class="px-6 py-2.5 rounded-xl bg-slate-800 text-white text-xs font-semibold hover:bg-slate-700 transition-colors cursor-pointer">
-                    Return to Page
-                </button>
+                <div class="flex flex-wrap justify-center gap-3 pt-2">
+                    <button onclick="closeModal(); switchView('admin')" class="px-5 py-2.5 rounded-xl bg-cyanGlow text-midnight text-xs font-bold hover:bg-cyan-300 transition-colors cursor-pointer">
+                        View in Admin Portal &rarr;
+                    </button>
+                    <button onclick="closeModal()" class="px-5 py-2.5 rounded-xl bg-slate-800 text-white text-xs font-semibold hover:bg-slate-700 transition-colors cursor-pointer">
+                        Stay on Public Site
+                    </button>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- ==================== JAVASCRIPT LOGIC ==================== -->
     <script>
-        // 1. Mobile Menu Toggle
+        // 1. View Switcher (Public Site vs Admin Portal)
+        function switchView(viewName) {
+            const publicView = document.getElementById('publicSiteView');
+            const adminView = document.getElementById('adminPortalView');
+            const publicNav = document.getElementById('publicNavLinks');
+            const btnPublic = document.getElementById('btnViewPublic');
+            const btnAdmin = document.getElementById('btnViewAdmin');
+
+            if (viewName === 'admin') {
+                publicView.classList.add('hidden');
+                adminView.classList.remove('hidden');
+                publicNav.classList.add('md:hidden');
+                publicNav.classList.remove('md:flex');
+
+                btnAdmin.classList.add('bg-cyanGlow', 'text-midnight');
+                btnAdmin.classList.remove('text-slate-200');
+                btnPublic.classList.remove('bg-cyanGlow', 'text-midnight');
+                btnPublic.classList.add('text-slate-200');
+
+                renderAdminDashboard();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                adminView.classList.add('hidden');
+                publicView.classList.remove('hidden');
+                publicNav.classList.remove('md:hidden');
+                publicNav.classList.add('md:flex');
+
+                btnPublic.classList.add('bg-cyanGlow', 'text-midnight');
+                btnPublic.classList.remove('text-slate-200');
+                btnAdmin.classList.remove('bg-cyanGlow', 'text-midnight');
+                btnAdmin.classList.add('text-slate-200');
+
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        // 2. Mobile Menu Toggle
         function toggleMobileMenu() {
             const menu = document.getElementById('mobileMenu');
             menu.classList.toggle('hidden');
         }
 
-        // 2. Modal Controls & Form Handling
+        // 3. Modal Controls & Live Form-to-Admin Sync
         function openModal() {
             const modal = document.getElementById('scopingModal');
+            const currentScore = checkedState.filter(Boolean).length;
+            document.getElementById('modalLiveScoreTag').textContent = `${currentScore}/10`;
             document.getElementById('modalFormContent').classList.remove('hidden');
             document.getElementById('modalSuccessContent').classList.add('hidden');
             modal.classList.remove('hidden');
@@ -723,231 +821,252 @@
 
         function handleBookingSubmit(e) {
             e.preventDefault();
-            const randomCode = Math.floor(1000 + Math.random() * 9000);
-            document.getElementById('bookingRefId').textContent = `REF: NTX-OD-${randomCode}`;
+            const randomCode = Math.floor(10000 + Math.random() * 90000);
+            const refId = `NVX-${randomCode}`;
+
+            const orgName = document.getElementById('inputOrgName').value.trim();
+            const fullName = document.getElementById('inputFullName').value.trim();
+            const role = document.getElementById('inputRole').value.trim();
+            const contact = document.getElementById('inputContact').value.trim();
+            const priority = document.getElementById('inputPriority').value;
+            const nowStr = new Date().toLocaleString('en-IN', {
+                day: '2-digit', month: 'short', year: 'numeric',
+                hour: '2-digit', minute: '2-digit', hour12: true
+            });
+
+            // Push live submission directly into Admin Inquiries state
+            adminInquiries.unshift({
+                refId: refId,
+                organization: orgName,
+                contactName: `${fullName} (${role})`,
+                contactDetail: contact,
+                priority: priority,
+                score: checkedState.filter(Boolean).length,
+                checkedFlags: [...checkedState],
+                consentTimestamp: `${nowStr} IST`,
+                status: 'New'
+            });
+
+            document.getElementById('bookingRefId').textContent = `REF: ${refId}`;
             document.getElementById('modalFormContent').classList.add('hidden');
             document.getElementById('modalSuccessContent').classList.remove('hidden');
+            updateAdminBadge();
             e.target.reset();
         }
 
-        // 3. Role Card Selection Highlight
-        function highlightRole(roleNum) {
-            for (let i = 1; i <= 3; i++) {
-                const card = document.getElementById(`role-card-${i}`);
-                if (i === roleNum) {
-                    card.classList.add('border-cyanGlow', 'shadow-cyan-sm');
-                } else {
-                    card.classList.remove('border-cyanGlow', 'shadow-cyan-sm');
-                }
-            }
-        }
-
-        // 4. Interactive 7-Step Protection Journey Explorer
+        // 4. 7-Step Protection Journey Data & Interactive Renderer
         const journeySteps = [
             {
-                step: "01",
+                num: "01",
                 title: "Discover Data",
-                subtitle: "Find all personal data across core banking and branches",
-                description: "You can only govern what you know. Identify where customer KYC, transaction histories, contact info, employee HR files, and service tickets live across Core Banking, branch registers, emails, and backups.",
+                subtitle: "Find all personal data across core banking, branch files, and emails.",
                 actions: [
-                    "Catalog Identity/KYC data (PAN, Aadhaar, photo, address)",
-                    "Scan physical branch files, digital exports & archive servers",
-                    "Document whether any data crosses Indian borders"
+                    "Catalog customer KYC, account, transaction, and employee records.",
+                    "Identify physical branch registers alongside Core Banking & CRM databases.",
+                    "Note any third-party vendor systems holding customer information."
                 ],
-                evidence: "Working Personal Data Inventory & System Register"
+                evidence: "Personal Data Inventory Register & System Catalogue",
+                control: "Data Classification & Discovery Baseline"
             },
             {
-                step: "02",
+                num: "02",
                 title: "Map Movement",
-                subtitle: "Trace internal hand-offs and external vendor sharing",
-                description: "Map how personal data enters the bank, which internal departments access it, and which third-party processors (payment networks, SMS gateways, KYC agencies, auditors) receive copies.",
+                subtitle: "Trace how personal data flows internally and to external partners.",
                 actions: [
-                    "Trace data flows from branch onboarding to central CBS",
-                    "Identify all external Data Processors and sub-processors",
-                    "Flag unnecessary data duplication in spreadsheets or emails"
+                    "Document hand-offs from branch onboarding to CBS, SMS/email gateways, and payment networks.",
+                    "Identify third-party processors (KYC verification, audit, IT support).",
+                    "Verify whether any cross-border data transfers occur."
                 ],
-                evidence: "Data Flow Diagram & Third-Party Vendor Map"
+                evidence: "End-to-End Data Flow Diagrams & Vendor Map",
+                control: "Secure Transfer & Vendor Safeguards"
             },
             {
-                step: "03",
+                num: "03",
                 title: "Decide Purpose",
-                subtitle: "Define why data is needed and the lawful basis",
-                description: "Every personal data category must tie to a clear, legitimate banking or statutory purpose—such as account servicing, fraud prevention, RBI compliance, or payroll administration.",
+                subtitle: "Define why each dataset is needed and confirm its lawful basis.",
                 actions: [
-                    "Link each dataset to a documented lawful ground",
-                    "Stop collecting excessive fields not needed for the service",
-                    "Separate mandatory statutory processing from optional marketing"
+                    "Link every dataset to a specific banking purpose (account servicing, RBI/KYC compliance, fraud prevention).",
+                    "Separate mandatory statutory processing from optional services.",
+                    "Eliminate excessive or unnecessary data collection on forms."
                 ],
-                evidence: "Purpose & Lawful Basis Matrix"
+                evidence: "Purpose Limitation Matrix & Lawful Basis Log",
+                control: "Purpose-Bound Processing Policy"
             },
             {
-                step: "04",
-                title: "Notice and Consent",
-                subtitle: "Tell people clearly and respect their choice",
-                description: "Provide plain-language notices explaining what data is collected, why it is used, how to exercise rights, and how to raise a grievance. Capture verifiable consent where required and make withdrawal easy.",
+                num: "04",
+                title: "Notice & Consent",
+                subtitle: "Explain data usage in plain language and capture valid user choices.",
                 actions: [
-                    "Draft clear notices in English and regional languages",
-                    "Record timestamped consent choices accurately",
-                    "Ensure withdrawing consent is as simple as giving it"
+                    "Provide clear, accessible privacy notices at account opening and digital touchpoints.",
+                    "Capture explicit, timestamped consent wherever required.",
+                    "Make consent withdrawal just as easy as giving consent."
                 ],
-                evidence: "Published Privacy Notices & Timestamped Consent Logs"
+                evidence: "Plain-Language Privacy Notices & Timestamped Consent Logs",
+                control: "Consent Capture & Withdrawal Workflow"
             },
             {
-                step: "05",
-                title: "Restrict and Monitor",
-                subtitle: "Enforce role-based access and security safeguards",
-                description: "Protect personal data against misuse, unauthorized viewing, or loss through encryption, sensitive field masking, least-privilege access controls, and continuous activity logging.",
+                num: "05",
+                title: "Restrict & Monitor",
+                subtitle: "Enforce role-based access and protect records against misuse or loss.",
                 actions: [
-                    "Apply role-based permissions across branch & IT staff",
-                    "Enable encryption and mask Aadhaar/PAN on routine screens",
-                    "Retain system access logs (1-year baseline per EY report)"
+                    "Apply least-privilege access so branch and back-office staff only see what they need.",
+                    "Enable encryption, data masking, and regular system patching.",
+                    "Maintain immutable activity logs and tested disaster recovery backups."
                 ],
-                evidence: "Access Review Logs, Encryption Policy & Vendor DPDP Clauses"
+                evidence: "Role Access Matrix, Encryption Config & Activity Logs",
+                control: "Encryption, Masking, Least Privilege & Backups"
             },
             {
-                step: "06",
+                num: "06",
                 title: "Respond",
-                subtitle: "Handle customer rights requests, grievances & breaches",
-                description: "Operate a structured 6-step workflow for customer requests (access, correction, erasure, nomination), track grievances within statutory timelines, and maintain a 72-hour breach response playbook.",
+                subtitle: "Handle customer rights requests, grievances, and incidents swiftly.",
                 actions: [
-                    "Verify requester identity proportionately before updating records",
-                    "Assign unique Case IDs for customer grievances",
-                    "Rehearse red-alert breach containment & Data Protection Board reporting"
+                    "Run a 6-step DSAR workflow (Receive, Acknowledge, Verify, Route, Assess, Respond).",
+                    "Track grievances with unique Case IDs within statutory timelines.",
+                    "Execute the 8-step Breach Response Playbook including 72-hour regulatory reporting."
                 ],
-                evidence: "DSAR Register, Grievance Closure Logs & Breach Playbook"
+                evidence: "DSAR & Grievance Register + Breach Playbook Drills",
+                control: "72-Hour Incident Response & Grievance Redressal"
             },
             {
-                step: "07",
-                title: "Retain and Delete",
-                subtitle: "Keep only what is needed, no longer than needed",
-                description: "Follow a purpose-based retention schedule. Once the banking purpose ends and no statutory retention law applies, securely delete or anonymise records across primary systems, backups, and vendors.",
+                num: "07",
+                title: "Retain & Delete",
+                subtitle: "Keep records only as long as needed and securely erase expired data.",
                 actions: [
-                    "Define review triggers (e.g., account closure or inactivity)",
-                    "Verify statutory retention duties before purging records",
-                    "Obtain deletion confirmation from third-party vendors"
+                    "Apply purpose-based retention schedules aligned with banking regulations.",
+                    "Retain processing logs for the required baseline window.",
+                    "Securely delete or anonymise expired data across primary systems, backups, and vendors."
                 ],
-                evidence: "Purpose-Based Retention Schedule & Deletion Certificates"
+                evidence: "Retention Schedule & Certificates of Secure Deletion",
+                control: "Purpose-Based Retention & Safe Erasure"
             }
         ];
 
         let activeJourneyIndex = 0;
 
         function renderJourney() {
-            const tabsContainer = document.getElementById('journey-tabs');
-            const detailContainer = document.getElementById('journey-detail');
+            const tabsContainer = document.getElementById('journeyTabs');
+            const detailContainer = document.getElementById('journeyDetailPanel');
+            if (!tabsContainer || !detailContainer) return;
 
-            tabsContainer.innerHTML = journeySteps.map((item, idx) => {
+            tabsContainer.innerHTML = journeySteps.map((step, idx) => {
                 const isActive = idx === activeJourneyIndex;
                 return `
-                    <button onclick="selectJourneyStep(${idx})" class="w-full text-left p-4 rounded-xl transition-all flex items-center justify-between cursor-pointer ${
-                        isActive 
-                        ? 'bg-cyanGlow/15 border border-cyanGlow text-white shadow-cyan-sm' 
-                        : 'glass-panel text-slate-300 hover:border-cyanGlow/40'
+                    <button onclick="selectJourneyStep(${idx})" class="w-full text-left p-4 rounded-xl border transition-all flex items-center justify-between cursor-pointer ${
+                        isActive
+                        ? 'bg-cyanGlow/15 border-cyanGlow text-white shadow-cyan-sm'
+                        : 'glass-panel border-slate-800/80 text-slate-300 hover:border-cyanGlow/40'
                     }">
                         <div class="flex items-center gap-3.5">
-                            <span class="font-display font-bold text-sm px-2.5 py-1 rounded-lg ${isActive ? 'bg-cyanGlow text-midnight' : 'bg-midnight text-cyanGlow'}">
-                                ${item.step}
-                            </span>
-                            <span class="font-display font-semibold text-base">${item.title}</span>
+                            <span class="font-mono text-xs font-bold px-2.5 py-1 rounded-lg ${
+                                isActive ? 'bg-cyanGlow text-midnight' : 'bg-midnight text-cyanGlow border border-cyanGlow/30'
+                            }">${step.num}</span>
+                            <div>
+                                <div class="font-display font-semibold text-sm sm:text-base">${step.title}</div>
+                                <div class="text-xs text-slate-400 line-clamp-1">${step.subtitle}</div>
+                            </div>
                         </div>
-                        <svg class="w-4 h-4 ${isActive ? 'text-cyanGlow' : 'text-slate-500'}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                        </svg>
+                        <span class="text-cyanGlow text-sm font-bold">${isActive ? '→' : ''}</span>
                     </button>
                 `;
             }).join('');
 
             const current = journeySteps[activeJourneyIndex];
             detailContainer.innerHTML = `
-                <div class="fade-in">
-                    <div class="flex items-center gap-3">
-                        <span class="px-3 py-1 rounded-full bg-cyanGlow/15 text-cyanGlow font-mono text-xs font-bold">STEP ${current.step} OF 07</span>
-                        <span class="text-xs text-slate-400">Visibility to Audit Evidence</span>
-                    </div>
-                    <h3 class="font-display text-2xl sm:text-3xl font-bold text-white mt-4">${current.title}</h3>
-                    <p class="text-sm font-medium text-cyanGlow mt-1">${current.subtitle}</p>
-                    <p class="text-sm sm:text-base text-slate-300 mt-4 leading-relaxed">${current.description}</p>
+                <div class="flex items-center gap-2 text-xs font-mono text-cyanGlow uppercase tracking-wider">
+                    <span>Step ${current.num} of 07</span>
+                    <span>•</span>
+                    <span>Practical Banking Execution</span>
+                </div>
+                <h3 class="font-display text-2xl sm:text-3xl font-bold text-white mt-2">${current.title}</h3>
+                <p class="text-sm text-slate-300 mt-2 leading-relaxed">${current.subtitle}</p>
 
-                    <div class="mt-6">
-                        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">Key Banking Actions</h4>
-                        <ul class="space-y-2.5">
-                            ${current.actions.map(act => `
-                                <li class="flex items-start gap-2.5 text-sm text-slate-200">
-                                    <span class="w-5 h-5 rounded-full bg-cyanGlow/15 text-cyanGlow flex items-center justify-center shrink-0 mt-0.5 text-xs">✓</span>
-                                    <span>${act}</span>
-                                </li>
-                            `).join('')}
-                        </ul>
-                    </div>
+                <div class="mt-6 space-y-3">
+                    <div class="text-xs font-bold uppercase tracking-wider text-slate-400">Key Operational Actions</div>
+                    ${current.actions.map(action => `
+                        <div class="flex items-start gap-3 p-3 rounded-xl bg-midnight/70 border border-slate-800/90 text-xs sm:text-sm text-slate-200">
+                            <span class="text-cyanGlow font-bold mt-0.5">✓</span>
+                            <span>${action}</span>
+                        </div>
+                    `).join('')}
                 </div>
 
-                <div class="mt-8 pt-5 border-t border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                    <div>
-                        <div class="text-[11px] uppercase tracking-wider text-slate-400">Audit-Ready Output</div>
-                        <div class="text-sm font-semibold text-white mt-0.5">${current.evidence}</div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6 pt-6 border-t border-slate-800">
+                    <div class="p-3.5 rounded-xl bg-midnight/60 border border-slate-800">
+                        <div class="text-[11px] text-slate-400 uppercase font-semibold">Audit Evidence Generated</div>
+                        <div class="text-xs sm:text-sm text-emerald-300 font-medium mt-1">${current.evidence}</div>
                     </div>
-                    <button onclick="openModal()" class="px-4 py-2 rounded-xl bg-cyanGlow/10 border border-cyanGlow/40 text-cyanGlow text-xs font-semibold hover:bg-cyanGlow hover:text-midnight transition-all cursor-pointer self-start sm:self-auto">
-                        Discuss Step ${current.step}
-                    </button>
+                    <div class="p-3.5 rounded-xl bg-midnight/60 border border-slate-800">
+                        <div class="text-[11px] text-slate-400 uppercase font-semibold">Core Security Control</div>
+                        <div class="text-xs sm:text-sm text-cyanGlow font-medium mt-1">${current.control}</div>
+                    </div>
                 </div>
             `;
         }
 
-        function selectJourneyStep(index) {
-            activeJourneyIndex = index;
+        function selectJourneyStep(idx) {
+            activeJourneyIndex = idx;
             renderJourney();
         }
 
-        // 5. Interactive 10-Point Readiness Scorecard
+        // 5. 10-Point Readiness Scorecard Data & Interactive Checklist
         const scorecardItems = [
-            "1. Data inventory & classification",
-            "2. Plain-language notices & consent",
-            "3. Customer rights request workflow",
-            "4. Grievance handling route (90-day track)",
-            "5. Purpose-based retention & safe deletion",
-            "6. Role-based access & least privilege",
-            "7. Activity logging & audit monitoring",
-            "8. Encrypted backups & recovery testing",
-            "9. 72-hour breach response playbook",
-            "10. Board sponsor & vendor governance"
+            "1. Personal Data Inventory & Classification",
+            "2. Plain-Language Notices & Consent Flows",
+            "3. Rights Requests Workflow (Access, Correction, Erasure)",
+            "4. Accessible Grievance Handling Route",
+            "5. Purpose-Based Data Retention & Safe Disposal",
+            "6. Role-Based Access & Least Privilege Control",
+            "7. System Activity Logging & Monitoring",
+            "8. Tested Backups & Disaster Recovery Readiness",
+            "9. 72-Hour Incident & Breach Response Playbook",
+            "10. Board & Senior Leadership Governance Oversight"
         ];
 
         const checkedState = new Array(scorecardItems.length).fill(false);
 
         function renderScorecard() {
-            const grid = document.getElementById('scorecard-grid');
-            grid.innerHTML = scorecardItems.map((label, idx) => {
-                const isChecked = checkedState[idx];
-                return `
-                    <div onclick="toggleScoreItem(${idx})" class="p-3.5 rounded-xl border transition-all cursor-pointer flex items-center gap-3 select-none ${
-                        isChecked 
-                        ? 'bg-cyanGlow/15 border-cyanGlow text-white' 
-                        : 'glass-panel text-slate-300 hover:border-cyanGlow/40'
-                    }">
-                        <div class="w-5 h-5 rounded-md flex items-center justify-center shrink-0 border ${
-                            isChecked ? 'bg-cyanGlow border-cyanGlow text-midnight font-bold' : 'border-slate-600 bg-midnight'
+            const listContainer = document.getElementById('scorecardChecklist');
+            const scoreValueEl = document.getElementById('scorecardValue');
+            const scorePercentEl = document.getElementById('scorecardPercent');
+            const scoreBarEl = document.getElementById('scorecardProgressBar');
+            const scoreStatusEl = document.getElementById('scorecardStatusText');
+
+            if (listContainer) {
+                listContainer.innerHTML = scorecardItems.map((item, idx) => {
+                    const checked = checkedState[idx];
+                    return `
+                        <label onclick="toggleScoreItem(${idx})" class="flex items-center gap-3 p-3.5 rounded-xl border transition-all cursor-pointer select-none ${
+                            checked
+                            ? 'bg-cyanGlow/15 border-cyanGlow/50 text-white'
+                            : 'bg-midnight/60 border-slate-800 text-slate-300 hover:border-slate-700'
                         }">
-                            ${isChecked ? '✓' : ''}
-                        </div>
-                        <span class="text-xs sm:text-sm font-medium leading-snug">${label}</span>
-                    </div>
-                `;
-            }).join('');
+                            <div class="w-5 h-5 rounded-md flex items-center justify-center border text-xs font-bold shrink-0 ${
+                                checked ? 'bg-cyanGlow border-cyanGlow text-midnight' : 'border-slate-600 text-transparent'
+                            }">✓</div>
+                            <span class="text-xs sm:text-sm font-medium">${item}</span>
+                        </label>
+                    `;
+                }).join('');
+            }
 
             const count = checkedState.filter(Boolean).length;
             const pct = count * 10;
-            document.getElementById('score-badge').textContent = `${pct} / 100%`;
-            document.getElementById('score-bar').style.width = `${pct}%`;
 
-            const feedback = document.getElementById('score-feedback');
-            if (pct === 0) {
-                feedback.textContent = "Select items above to evaluate your current DPDP readiness posture.";
-            } else if (pct <= 40) {
-                feedback.textContent = "Early Foundation: Focus on Days 1–12 of the starter roadmap (Board sponsor, system inventory & notices).";
-            } else if (pct <= 70) {
-                feedback.textContent = "Developing Readiness: Good baseline! Prioritise vendor clauses, breach playbooks, and retention schedules.";
-            } else {
-                feedback.textContent = "Strong Posture: Ready for evidence validation, staff drills, and periodic governance reviews.";
+            if (scoreValueEl) scoreValueEl.textContent = `${count} / 10`;
+            if (scorePercentEl) scorePercentEl.textContent = `${pct}%`;
+            if (scoreBarEl) scoreBarEl.style.width = `${pct}%`;
+
+            if (scoreStatusEl) {
+                if (count === 0) {
+                    scoreStatusEl.textContent = "Select your bank's existing controls to calculate your baseline.";
+                } else if (count <= 4) {
+                    scoreStatusEl.textContent = "Early Stage: High priority for a 30-day starter readiness roadmap.";
+                } else if (count <= 7) {
+                    scoreStatusEl.textContent = "Developing: Core foundations exist; formalize notices, logs, and vendor clauses.";
+                } else {
+                    scoreStatusEl.textContent = "Strong Baseline: Focus on audit evidence, drills, and continuous monitoring.";
+                }
             }
         }
 
@@ -956,114 +1075,364 @@
             renderScorecard();
         }
 
-        // 6. Three.js 3D Interactive Shield & Data-Node Network (Hero Visual)
+        // 6. Admin Dashboard Data & Interactive Operations Logic
+        const adminInquiries = [
+            {
+                refId: "NVX-48219",
+                organization: "Cuttack Central Co-op Bank",
+                contactName: "Subrat Mohanty (GM - IT & CBS)",
+                contactDetail: "s.mohanty@cuttackccb.in",
+                priority: "30-Day Starter Readiness Assessment",
+                score: 3,
+                checkedFlags: [true, false, false, true, false, true, false, false, false, false],
+                consentTimestamp: "14 Nov 2026, 11:20 AM IST",
+                status: "Scoping Scheduled"
+            },
+            {
+                refId: "NVX-39104",
+                organization: "Bhubaneswar Urban Co-op Bank",
+                contactName: "Ananya Das (Compliance Officer)",
+                contactDetail: "compliance@bbsrucb.org",
+                priority: "Customer Privacy Notices & Consent Flow",
+                score: 6,
+                checkedFlags: [true, true, false, true, false, true, true, true, false, false],
+                consentTimestamp: "13 Nov 2026, 04:05 PM IST",
+                status: "Audit In-Progress"
+            },
+            {
+                refId: "NVX-77412",
+                organization: "Kalinga FinServe Pvt. Ltd.",
+                contactName: "Rajesh Pattnaik (VP Operations)",
+                contactDetail: "+91 94370 88210",
+                priority: "Personal Data Inventory & KYC Mapping",
+                score: 8,
+                checkedFlags: [true, true, true, true, false, true, true, true, true, false],
+                consentTimestamp: "12 Nov 2026, 02:42 PM IST",
+                status: "Scoping Scheduled"
+            },
+            {
+                refId: "NVX-51908",
+                organization: "Sambalpur District Co-op Bank",
+                contactName: "Prakash Pradhan (Chief Manager)",
+                contactDetail: "p.pradhan@sambalpurdccb.in",
+                priority: "72-Hour Breach Playbook & Security Controls",
+                score: 2,
+                checkedFlags: [false, false, false, false, false, true, false, true, false, false],
+                consentTimestamp: "11 Nov 2026, 10:15 AM IST",
+                status: "New"
+            },
+            {
+                refId: "NVX-63095",
+                organization: "Berhampur Agro Credit Society",
+                contactName: "Meera Tripathy (Secretary)",
+                contactDetail: "admin@berhampuragro.in",
+                priority: "Board / Staff DPDP Awareness Briefing",
+                score: 4,
+                checkedFlags: [true, true, false, false, false, true, false, true, false, false],
+                consentTimestamp: "10 Nov 2026, 05:30 PM IST",
+                status: "Closed"
+            }
+        ];
+
+        function updateAdminBadge() {
+            const badge = document.getElementById('adminLeadCountBadge');
+            if (badge) badge.textContent = adminInquiries.length;
+        }
+
+        function renderAdminDashboard() {
+            const tbody = document.getElementById('adminInquiriesTableBody');
+            if (!tbody) return;
+
+            const searchTerm = (document.getElementById('adminSearchInput')?.value || '').toLowerCase();
+            const statusFilter = document.getElementById('adminStatusFilter')?.value || 'ALL';
+
+            // Update KPI Cards
+            const total = adminInquiries.length;
+            const avgScore = total > 0
+                ? (adminInquiries.reduce((sum, item) => sum + item.score, 0) / total).toFixed(1)
+                : '0.0';
+            const highPriorityCount = adminInquiries.filter(item => item.score <= 4).length;
+
+            document.getElementById('kpiTotalInquiries').textContent = total;
+            document.getElementById('kpiAvgScore').textContent = `${avgScore} / 10`;
+            document.getElementById('kpiHighPriority').textContent = highPriorityCount;
+            updateAdminBadge();
+
+            // Filter rows
+            const filtered = adminInquiries.filter(item => {
+                const matchesSearch = item.organization.toLowerCase().includes(searchTerm) ||
+                                      item.refId.toLowerCase().includes(searchTerm) ||
+                                      item.contactName.toLowerCase().includes(searchTerm);
+                const matchesStatus = statusFilter === 'ALL' || item.status === statusFilter;
+                return matchesSearch && matchesStatus;
+            });
+
+            if (filtered.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="7" class="py-10 text-center text-slate-400 text-sm">
+                            No matching co-operative bank inquiries found.
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            tbody.innerHTML = filtered.map((item) => {
+                const originalIndex = adminInquiries.indexOf(item);
+                let scoreBadgeClass = 'bg-emerald-500/15 text-emerald-300 border-emerald-500/30';
+                let riskLabel = 'Strong';
+                if (item.score <= 4) {
+                    scoreBadgeClass = 'bg-rose-500/15 text-rose-300 border-rose-500/30';
+                    riskLabel = 'High Priority';
+                } else if (item.score <= 7) {
+                    scoreBadgeClass = 'bg-amber-500/15 text-amber-300 border-amber-500/30';
+                    riskLabel = 'Moderate';
+                }
+
+                return `
+                    <tr class="hover:bg-cyanGlow/[0.03] transition-colors">
+                        <td class="py-4 px-5 font-mono text-xs text-cyanGlow font-semibold whitespace-nowrap">${item.refId}</td>
+                        <td class="py-4 px-5">
+                            <div class="font-semibold text-white">${item.organization}</div>
+                            <div class="text-[11px] text-slate-400 mt-0.5">${item.priority}</div>
+                        </td>
+                        <td class="py-4 px-5">
+                            <div class="text-slate-200 text-xs font-medium">${item.contactName}</div>
+                            <div class="text-[11px] text-slate-400">${item.contactDetail}</div>
+                        </td>
+                        <td class="py-4 px-5 whitespace-nowrap">
+                            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border text-xs font-semibold ${scoreBadgeClass}">
+                                ${item.score}/10 • ${riskLabel}
+                            </span>
+                        </td>
+                        <td class="py-4 px-5 whitespace-nowrap">
+                            <div class="inline-flex items-center gap-1 text-[11px] text-emerald-300 font-medium">
+                                <span>✓ Verified Consent</span>
+                            </div>
+                            <div class="text-[10px] text-slate-400 font-mono mt-0.5">${item.consentTimestamp}</div>
+                        </td>
+                        <td class="py-4 px-5 whitespace-nowrap">
+                            <select onchange="updateInquiryStatus(${originalIndex}, this.value)" class="px-2.5 py-1.5 rounded-lg bg-midnight border border-slate-700 text-xs text-slate-200 focus:border-cyanGlow focus:outline-none cursor-pointer">
+                                <option value="New" ${item.status === 'New' ? 'selected' : ''}>New</option>
+                                <option value="Scoping Scheduled" ${item.status === 'Scoping Scheduled' ? 'selected' : ''}>Scoping Scheduled</option>
+                                <option value="Audit In-Progress" ${item.status === 'Audit In-Progress' ? 'selected' : ''}>Audit In-Progress</option>
+                                <option value="Closed" ${item.status === 'Closed' ? 'selected' : ''}>Closed</option>
+                            </select>
+                        </td>
+                        <td class="py-4 px-5 text-right whitespace-nowrap">
+                            <button onclick="openBreakdownModal(${originalIndex})" class="px-3 py-1.5 rounded-lg bg-cyanGlow/10 border border-cyanGlow/30 text-cyanGlow text-xs font-semibold hover:bg-cyanGlow hover:text-midnight transition-all cursor-pointer">
+                                View Breakdown
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function updateInquiryStatus(index, newStatus) {
+            if (adminInquiries[index]) {
+                adminInquiries[index].status = newStatus;
+            }
+        }
+
+        function openBreakdownModal(index) {
+            const item = adminInquiries[index];
+            if (!item) return;
+
+            const modal = document.getElementById('breakdownModal');
+            const container = document.getElementById('breakdownContent');
+
+            container.innerHTML = `
+                <div class="flex flex-wrap items-center gap-2">
+                    <span class="px-2.5 py-1 rounded-md bg-cyanGlow/15 text-cyanGlow font-mono text-xs font-bold">${item.refId}</span>
+                    <span class="text-xs text-slate-400">DPDP 10-Point Diagnostic Report</span>
+                </div>
+                <h3 class="font-display text-2xl font-bold text-white mt-2">${item.organization}</h3>
+                <p class="text-xs text-slate-300 mt-1">${item.contactName} • ${item.contactDetail}</p>
+
+                <div class="grid grid-cols-2 gap-3 mt-5 p-4 rounded-xl bg-midnight/80 border border-slate-800">
+                    <div>
+                        <div class="text-[11px] text-slate-400">Readiness Score</div>
+                        <div class="font-display text-xl font-bold text-cyanGlow mt-0.5">${item.score} / 10 (${item.score * 10}%)</div>
+                    </div>
+                    <div>
+                        <div class="text-[11px] text-slate-400">Consent Timestamp</div>
+                        <div class="text-xs font-mono text-emerald-300 mt-1">${item.consentTimestamp}</div>
+                    </div>
+                </div>
+
+                <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mt-6 mb-3">10-Point Control Breakdown</h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                    ${scorecardItems.map((label, i) => {
+                        const passed = item.checkedFlags[i];
+                        return `
+                            <div class="p-2.5 rounded-xl border text-xs flex items-center gap-2.5 ${
+                                passed
+                                ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-200'
+                                : 'bg-rose-500/10 border-rose-500/30 text-rose-200'
+                            }">
+                                <span class="font-bold">${passed ? '✓' : '✕'}</span>
+                                <span>${label}</span>
+                            </div>
+                        `;
+                    }).join('')}
+                </div>
+
+                <div class="mt-6 pt-4 border-t border-slate-800 flex justify-end">
+                    <button onclick="closeBreakdownModal()" class="px-5 py-2 rounded-xl bg-slate-800 text-white text-xs font-semibold hover:bg-slate-700 cursor-pointer">
+                        Close Report
+                    </button>
+                </div>
+            `;
+
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeBreakdownModal() {
+            const modal = document.getElementById('breakdownModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function exportAdminCSV() {
+            const headers = ["Ref ID", "Organization", "Contact", "Readiness Score", "Consent Timestamp", "Status"];
+            const rows = adminInquiries.map(i => [
+                i.refId,
+                `"${i.organization}"`,
+                `"${i.contactName}"`,
+                `${i.score}/10`,
+                `"${i.consentTimestamp}"`,
+                i.status
+            ]);
+            const csvContent = "data:text/csv;charset=utf-8," + [headers.join(","), ...rows.map(r => r.join(","))].join("\n");
+            const encodedUri = encodeURI(csvContent);
+            const link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", "netravex_dpdp_inquiries_audit.csv");
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        // 7. Three.js 3D Interactive Shield & Data-Node Network (Hero Visual)
         function initHero3D() {
-            const container = document.getElementById('hero-3d-container');
+            const container = document.getElementById('hero3dContainer');
             if (!container || typeof THREE === 'undefined') return;
 
             const scene = new THREE.Scene();
             const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 100);
-            camera.position.z = 6.2;
+            camera.position.z = 5.2;
 
             const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
             renderer.setSize(container.clientWidth, container.clientHeight);
             renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
             container.appendChild(renderer.domElement);
 
-            // Group to hold interactive 3D elements
-            const pivotGroup = new THREE.Group();
-            scene.add(pivotGroup);
+            const mainGroup = new THREE.Group();
+            scene.add(mainGroup);
 
-            // Inner Wireframe Core (Icosahedron representing protected data core)
-            const coreGeo = new THREE.IcosahedronGeometry(1.45, 1);
-            const coreMat = new THREE.MeshBasicMaterial({
+            // Outer Wireframe Icosahedron (Data Mesh)
+            const geoOuter = new THREE.IcosahedronGeometry(1.75, 1);
+            const matOuter = new THREE.MeshBasicMaterial({
                 color: 0x00E5FF,
                 wireframe: true,
                 transparent: true,
                 opacity: 0.35
             });
-            const coreMesh = new THREE.Mesh(coreGeo, coreMat);
-            pivotGroup.add(coreMesh);
+            const outerMesh = new THREE.Mesh(geoOuter, matOuter);
+            mainGroup.add(outerMesh);
 
-            // Glowing Node Points on Vertices
+            // Inner Core Polyhedron
+            const geoInner = new THREE.OctahedronGeometry(0.95, 0);
+            const matInner = new THREE.MeshBasicMaterial({
+                color: 0x0EA5E9,
+                wireframe: true,
+                transparent: true,
+                opacity: 0.65
+            });
+            const innerMesh = new THREE.Mesh(geoInner, matInner);
+            mainGroup.add(innerMesh);
+
+            // Orbital Ring
+            const ringGeo = new THREE.RingGeometry(2.25, 2.28, 64);
+            const ringMat = new THREE.MeshBasicMaterial({
+                color: 0x00E5FF,
+                side: THREE.DoubleSide,
+                transparent: true,
+                opacity: 0.35
+            });
+            const ringMesh = new THREE.Mesh(ringGeo, ringMat);
+            ringMesh.rotation.x = Math.PI / 2.6;
+            ringMesh.rotation.y = Math.PI / 8;
+            mainGroup.add(ringMesh);
+
+            // Glowing Node Points at Vertices
+            const vertices = geoOuter.attributes.position.array;
+            const pointsGeo = new THREE.BufferGeometry();
+            pointsGeo.setAttribute('position', new THREE.BufferAttribute(vertices, 3));
             const pointsMat = new THREE.PointsMaterial({
-                color: 0xFFFFFF,
+                color: 0x00E5FF,
                 size: 0.08,
                 transparent: true,
-                opacity: 0.9
+                opacity: 0.95
             });
-            const nodePoints = new THREE.Points(coreGeo, pointsMat);
-            pivotGroup.add(nodePoints);
+            const nodePoints = new THREE.Points(pointsGeo, pointsMat);
+            mainGroup.add(nodePoints);
 
-            // Outer Protective Orbit Rings (Representing Governance & Safeguards)
-            const ring1Geo = new THREE.TorusGeometry(2.15, 0.015, 16, 100);
-            const ring1Mat = new THREE.MeshBasicMaterial({ color: 0x00E5FF, transparent: true, opacity: 0.55 });
-            const ring1 = new THREE.Mesh(ring1Geo, ring1Mat);
-            ring1.rotation.x = Math.PI / 3;
-            pivotGroup.add(ring1);
+            // Mouse / Touch Drag & Hover Tilt
+            let isDragging = false;
+            let prevX = 0, prevY = 0;
+            let targetRotX = 0, targetRotY = 0;
 
-            const ring2Geo = new THREE.TorusGeometry(2.45, 0.01, 16, 100);
-            const ring2Mat = new THREE.MeshBasicMaterial({ color: 0x38BDF8, transparent: true, opacity: 0.3 });
-            const ring2 = new THREE.Mesh(ring2Geo, ring2Mat);
-            ring2.rotation.y = Math.PI / 4;
-            pivotGroup.add(ring2);
-
-            // Ambient Floating Data Particles
-            const particleCount = 90;
-            const particleGeo = new THREE.BufferGeometry();
-            const positions = new Float32Array(particleCount * 3);
-            for (let i = 0; i < particleCount * 3; i++) {
-                positions[i] = (Math.random() - 0.5) * 7.5;
-            }
-            particleGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-            const particleMat = new THREE.PointsMaterial({ color: 0x00E5FF, size: 0.04, transparent: true, opacity: 0.5 });
-            const particles = new THREE.Points(particleGeo, particleMat);
-            scene.add(particles);
-
-            // Interactive Mouse / Touch Tilt
-            let targetRotX = 0;
-            let targetRotY = 0;
-
-            container.addEventListener('mousemove', (e) => {
-                const rect = container.getBoundingClientRect();
-                const normX = ((e.clientX - rect.left) / rect.width) * 2 - 1;
-                const normY = ((e.clientY - rect.top) / rect.height) * 2 - 1;
-                targetRotY = normX * 0.65;
-                targetRotX = normY * 0.45;
+            container.addEventListener('pointerdown', (e) => {
+                isDragging = true;
+                prevX = e.clientX;
+                prevY = e.clientY;
             });
 
-            container.addEventListener('mouseleave', () => {
-                targetRotX = 0;
-                targetRotY = 0;
+            window.addEventListener('pointerup', () => {
+                isDragging = false;
             });
 
-            // Responsive Resize Handler
+            container.addEventListener('pointermove', (e) => {
+                if (isDragging) {
+                    const dx = e.clientX - prevX;
+                    const dy = e.clientY - prevY;
+                    targetRotY += dx * 0.008;
+                    targetRotX += dy * 0.008;
+                    prevX = e.clientX;
+                    prevY = e.clientY;
+                } else {
+                    const rect = container.getBoundingClientRect();
+                    const nx = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+                    const ny = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+                    targetRotY = nx * 0.35;
+                    targetRotX = -ny * 0.25;
+                }
+            });
+
             window.addEventListener('resize', () => {
-                if (!container) return;
+                if (!container.clientWidth || !container.clientHeight) return;
                 camera.aspect = container.clientWidth / container.clientHeight;
                 camera.updateProjectionMatrix();
                 renderer.setSize(container.clientWidth, container.clientHeight);
             });
 
-            // Animation Loop
             function animate() {
                 requestAnimationFrame(animate);
+                outerMesh.rotation.y += 0.003;
+                nodePoints.rotation.y += 0.003;
+                innerMesh.rotation.y -= 0.006;
+                innerMesh.rotation.x += 0.004;
 
-                coreMesh.rotation.y += 0.004;
-                coreMesh.rotation.x += 0.002;
-                nodePoints.rotation.y += 0.004;
-                nodePoints.rotation.x += 0.002;
-
-                ring1.rotation.z += 0.003;
-                ring2.rotation.z -= 0.0025;
-                particles.rotation.y -= 0.001;
-
-                // Smooth damping toward cursor tilt
-                pivotGroup.rotation.y += (targetRotY - pivotGroup.rotation.y) * 0.06;
-                pivotGroup.rotation.x += (targetRotX - pivotGroup.rotation.x) * 0.06;
+                mainGroup.rotation.y += (targetRotY - mainGroup.rotation.y) * 0.06;
+                mainGroup.rotation.x += (targetRotX - mainGroup.rotation.x) * 0.06;
 
                 renderer.render(scene, camera);
             }
+
             animate();
         }
 
@@ -1071,6 +1440,7 @@
         window.onload = function () {
             renderJourney();
             renderScorecard();
+            renderAdminDashboard();
             initHero3D();
         };
     </script>
